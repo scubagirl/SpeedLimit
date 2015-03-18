@@ -413,6 +413,7 @@
 				0F5C2A731AB89424003E250A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F5C2A741AB89424003E250A /* Build configuration list for PBXNativeTarget "SpeedLimitTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +422,7 @@
 				0F5C2A761AB89424003E250A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
