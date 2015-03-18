@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F578A211AB9F1AE00D049AC /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F578A201AB9F1AE00D049AC /* settingsViewController.swift */; };
 		0F5C2A551AB89424003E250A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A541AB89424003E250A /* AppDelegate.swift */; };
 		0F5C2A581AB89424003E250A /* SpeedLimit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A561AB89424003E250A /* SpeedLimit.xcdatamodeld */; };
 		0F5C2A5A1AB89424003E250A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A591AB89424003E250A /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F578A201AB9F1AE00D049AC /* settingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
 		0F5C2A4F1AB89424003E250A /* SpeedLimit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedLimit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5C2A531AB89424003E250A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F5C2A541AB89424003E250A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		0F5C2A511AB89424003E250A /* SpeedLimit */ = {
 			isa = PBXGroup;
 			children = (
+				0F578A201AB9F1AE00D049AC /* settingsViewController.swift */,
 				0F5C2A541AB89424003E250A /* AppDelegate.swift */,
 				0F5C2A591AB89424003E250A /* ViewController.swift */,
 				0F5C2A5B1AB89424003E250A /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				0F5C2A5A1AB89424003E250A /* ViewController.swift in Sources */,
 				0F5C2A551AB89424003E250A /* AppDelegate.swift in Sources */,
 				0F5C2A581AB89424003E250A /* SpeedLimit.xcdatamodeld in Sources */,
+				0F578A211AB9F1AE00D049AC /* settingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
