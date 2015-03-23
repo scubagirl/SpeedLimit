@@ -16,6 +16,7 @@
 		0F5C2A621AB89424003E250A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A601AB89424003E250A /* LaunchScreen.xib */; };
 		0F5C2A6E1AB89424003E250A /* SpeedLimitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A6D1AB89424003E250A /* SpeedLimitTests.swift */; };
 		0F5C2A781AB8975F003E250A /* icon_small_settings1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A771AB8975F003E250A /* icon_small_settings1.png */; };
+		0F7AB75E1ABB8C2E0043B479 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		0F5C2A6C1AB89424003E250A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F5C2A6D1AB89424003E250A /* SpeedLimitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedLimitTests.swift; sourceTree = "<group>"; };
 		0F5C2A771AB8975F003E250A /* icon_small_settings1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_small_settings1.png; path = ../../../../icon_small_settings1.png; sourceTree = "<group>"; };
+		0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				0F578A201AB9F1AE00D049AC /* settingsViewController.swift */,
 				0F5C2A541AB89424003E250A /* AppDelegate.swift */,
 				0F5C2A591AB89424003E250A /* ViewController.swift */,
+				0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */,
 				0F5C2A5B1AB89424003E250A /* Main.storyboard */,
 				0F5C2A5E1AB89424003E250A /* Images.xcassets */,
 				0F5C2A601AB89424003E250A /* LaunchScreen.xib */,
@@ -224,6 +227,7 @@
 			files = (
 				0F5C2A5A1AB89424003E250A /* ViewController.swift in Sources */,
 				0F5C2A551AB89424003E250A /* AppDelegate.swift in Sources */,
+				0F7AB75E1ABB8C2E0043B479 /* LocationManager.swift in Sources */,
 				0F5C2A581AB89424003E250A /* SpeedLimit.xcdatamodeld in Sources */,
 				0F578A211AB9F1AE00D049AC /* settingsViewController.swift in Sources */,
 			);

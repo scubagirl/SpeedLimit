@@ -13,7 +13,22 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
    var window: UIWindow?
+   var locationManager: LocationManager
+   var viewController: ViewController
 
+   override init() {
+      locationManager = LocationManager()
+      viewController = ViewController()
+      super.init()
+   }
+   
+   func startLocationServices() {
+      
+      self.locationManager.checkLocationServices()
+      viewController.outputLabel.text = "\(locationManager.getCoord())"
+      
+      
+   }
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
       // Override point for customization after application launch.

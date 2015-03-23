@@ -9,12 +9,12 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
-   
-//   let locationManager = CLLocationManager()
-   var locationManager:CLLocationManager!
+class ViewController: UIViewController{
+
+   var locationManager: LocationManager!
    var currentSpeed : NSNumber = 0.0
    var speedLimit : Int = 0
+   var currentLocation: CLLocation! = nil
    @IBOutlet var outputLabel: UILabel! = nil
    
    @IBOutlet var speedLimitLabel: UILabel! = nil
@@ -22,35 +22,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
    override func viewDidLoad() {
       
       super.viewDidLoad()
+      locationManager = LocationManager()
       outputLabel.font = UIFont.boldSystemFontOfSize(60.0)
-      outputLabel.text = "\(currentSpeed)"
       speedLimitLabel.font = UIFont.boldSystemFontOfSize(30.0)
       speedLimitLabel.text = "Speed Limit:"
-      
-      locationManager = CLLocationManager()
-      locationManager.delegate = self
-      locationManager.desiredAccuracy = kCLLocationAccuracyBest
-      locationManager.requestAlwaysAuthorization()
-      locationManager.startUpdatingLocation()
-      
+      locationManager.checkLocationServices()
    }
    
-   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
-   }
-   
-   
-   func getLocation() -> CLLocationCoordinate2D {
-
-      return locationManager.location.coordinate
-   }
-   
-   func getSpeed() -> NSNumber {
-      
-      return locationManager.location.speed
-      
-   }
    
 
    @IBAction func settingsButton(sender: AnyObject) {
@@ -61,10 +39,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
    }
 
    @IBAction func speedLimitButtion(sender: UIButton) {
-      getLocation()
       speedLimit = 0
+      currentSpeed = locationManager.getSpeed()
       outputLabel.font = UIFont.boldSystemFontOfSize(60.0)
-      outputLabel.text = "\(speedLimit)"
+      outputLabel.text = "\(currentSpeed)"
+      
       if(currentSpeed.integerValue <= speedLimit){
          self.view.backgroundColor = UIColor.whiteColor()
       }
