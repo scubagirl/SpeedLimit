@@ -38,7 +38,7 @@ class ViewController: UIViewController{
       
    }
 
-   @IBAction func speedLimitButtion(sender: UIButton) {
+   @IBAction func speedLimitButton(sender: UIButton) {
       speedLimit = 0
       currentSpeed = locationManager.getSpeed()
       outputLabel.font = UIFont.boldSystemFontOfSize(60.0)
