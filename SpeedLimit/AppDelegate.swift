@@ -2,9 +2,6 @@
 //  AppDelegate.swift
 //  SpeedLimit
 //
-//  Created by Lauren C. O'Keefe on 3/17/15.
-//  Copyright (c) 2015 ScubaGirl. All rights reserved.
-//
 
 import UIKit
 import CoreData

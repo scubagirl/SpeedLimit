@@ -2,9 +2,7 @@
 //  LocationManager.swift
 //  SpeedLimit
 //
-//  Created by Lauren C. O'Keefe on 3/19/15.
-//  Copyright (c) 2015 ScubaGirl. All rights reserved.
-//
+
 
 import Foundation
 import CoreLocation
@@ -34,7 +32,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
    func checkLocationServices() {
       switch CLLocationManager.authorizationStatus() {
          
-      case .AuthorizedAlways, .AuthorizedWhenInUse /*, .Authorized */:
+      case .AuthorizedAlways, .AuthorizedWhenInUse:
          
          startUpdatingLocation()
          
@@ -48,6 +46,10 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
    
    func getSpeed() ->NSNumber {
       return manager.location.speed
+   }
+   
+   func getDirection() ->CLLocationDirection {
+      return manager.location.course
    }
    
    func getCoord() ->CLLocationCoordinate2D {

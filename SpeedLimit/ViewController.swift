@@ -2,9 +2,7 @@
 //  ViewController.swift
 //  SpeedLimit
 //
-//  Created by Lauren C. O'Keefe on 3/17/15.
-//  Copyright (c) 2015 ScubaGirl. All rights reserved.
-//
+
 
 import UIKit
 import CoreLocation
@@ -16,6 +14,7 @@ class ViewController: UIViewController{
    var speedLimit : Int = 0
    var currentLocation: CLLocation! = nil
    @IBOutlet var outputLabel: UILabel! = nil
+   var timer = NSTimer()
    
    @IBOutlet var speedLimitLabel: UILabel! = nil
    
@@ -27,22 +26,23 @@ class ViewController: UIViewController{
       speedLimitLabel.font = UIFont.boldSystemFontOfSize(30.0)
       speedLimitLabel.text = "Speed Limit:"
       locationManager.checkLocationServices()
+      timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateSpeed"), userInfo: nil, repeats: true)
    }
    
-   
-
-   @IBAction func settingsButton(sender: AnyObject) {
+   //need to change to get the speed limit from the database instead and compare to current speed
+   func updateSpeed(){
       
-      let settingsView = self.storyboard?.instantiateViewControllerWithIdentifier("settingsView") as settingsViewController
-      self.navigationController?.pushViewController(settingsView, animated: true)
+      let direction = locationManager.getDirection()
+      fetchSpeedLimitData(direction)
+      updateCurrentSpeed()
       
-   }
-
-   @IBAction func speedLimitButton(sender: UIButton) {
-      speedLimit = 0
-      currentSpeed = locationManager.getSpeed()
+      //temporary
+      currentSpeed = Int(arc4random_uniform(50))
+      speedLimit = 30
+      //end temporary
+      
       outputLabel.font = UIFont.boldSystemFontOfSize(60.0)
-      outputLabel.text = "\(currentSpeed)"
+      outputLabel.text = "\(speedLimit)"
       
       if(currentSpeed.integerValue <= speedLimit){
          self.view.backgroundColor = UIColor.whiteColor()
@@ -53,6 +53,30 @@ class ViewController: UIViewController{
       else{
          self.view.backgroundColor = UIColor.redColor()
       }
+   }
+   
+   func fetchSpeedLimitData(direction: CLLocationDirection){
+      direction      //use this to fetch the correct infor from the DB
+      
+      speedLimit = 0
+   }
+   
+   func updateCurrentSpeed(){
+      currentSpeed = locationManager.getSpeed()
+   }
+   
+
+   @IBAction func settingsButton(sender: AnyObject) {
+      
+      let settingsView = self.storyboard?.instantiateViewControllerWithIdentifier("settingsView") as settingsViewController
+      self.navigationController?.pushViewController(settingsView, animated: true)
+      
+   }
+
+   @IBAction func speedLimitButton(sender: UIButton) {
+      
+      //Implement push to read text
+      
    }
    
 
