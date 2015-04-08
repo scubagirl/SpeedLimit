@@ -63,8 +63,104 @@ typedef struct _NSZone NSZone;
 # endif
 #endif
 #if defined(__has_feature) && __has_feature(modules)
+@import UIKit;
+@import ObjectiveC;
+@import CoreLocation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+@class UIWindow;
+@class LocationManager;
+@class ViewController;
+@class UIApplication;
+@class NSObject;
+@class NSURL;
+@class NSManagedObjectModel;
+@class NSPersistentStoreCoordinator;
+@class NSManagedObjectContext;
+
+SWIFT_CLASS("_TtC10SpeedLimit11AppDelegate")
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@property (nonatomic) UIWindow * window;
+@property (nonatomic) LocationManager * locationManager;
+@property (nonatomic) ViewController * viewController;
+- (instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)startLocationServices;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
+- (void)applicationWillResignActive:(UIApplication *)application;
+- (void)applicationDidEnterBackground:(UIApplication *)application;
+- (void)applicationWillEnterForeground:(UIApplication *)application;
+- (void)applicationDidBecomeActive:(UIApplication *)application;
+- (void)applicationWillTerminate:(UIApplication *)application;
+@property (nonatomic) NSURL * applicationDocumentsDirectory;
+@property (nonatomic) NSManagedObjectModel * managedObjectModel;
+@property (nonatomic) NSPersistentStoreCoordinator * persistentStoreCoordinator;
+@property (nonatomic) NSManagedObjectContext * managedObjectContext;
+- (void)saveContext;
+@end
+
+@class CLLocationManager;
+@class NSNumber;
+
+SWIFT_CLASS("_TtC10SpeedLimit15LocationManager")
+@interface LocationManager : NSObject <CLLocationManagerDelegate>
+@property (nonatomic) CLLocationManager * manager;
+- (instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)startUpdatingLocation;
+- (void)checkLocationServices;
+- (NSNumber *)getSpeed;
+- (CLLocationDirection)getDirection;
+- (CLLocationCoordinate2D)getCoord;
+@end
+
+@class AVSpeechSynthesizer;
+@class CLLocation;
+@class UILabel;
+@class NSTimer;
+@class AVSpeechUtterance;
+@class UIButton;
+@class UITextView;
+@class NSBundle;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC10SpeedLimit14ViewController")
+@interface ViewController : UIViewController
+@property (nonatomic, readonly) AVSpeechSynthesizer * synth;
+@property (nonatomic) LocationManager * locationManager;
+@property (nonatomic) NSNumber * currentSpeed;
+@property (nonatomic) NSInteger speedLimit;
+@property (nonatomic) NSInteger yellowSpeed;
+@property (nonatomic) NSInteger redSpeed;
+@property (nonatomic) CLLocation * currentLocation;
+@property (nonatomic) IBOutlet UILabel * outputLabel;
+@property (nonatomic) NSTimer * timer;
+@property (nonatomic) NSTimer * speedTimer;
+@property (nonatomic) AVSpeechUtterance * myUtterance;
+@property (nonatomic) BOOL alreadySpeeding;
+@property (nonatomic) IBOutlet UILabel * speedLimitLabel;
+@property (nonatomic, weak) IBOutlet UITextView * overTextView;
+- (void)viewDidLoad;
+- (void)updateSpeed;
+- (void)speakWarning;
+- (void)fetchSpeedLimitData;
+- (void)updateCurrentSpeed;
+- (IBAction)settingsButton:(id)sender;
+- (IBAction)speedLimitButton:(UIButton *)sender;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC10SpeedLimit22settingsViewController")
+@interface settingsViewController : UIViewController
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (IBAction)backButton:(id)sender;
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
 #pragma clang diagnostic pop
