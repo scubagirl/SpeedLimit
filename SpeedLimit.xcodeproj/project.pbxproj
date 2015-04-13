@@ -7,13 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F07296D1ADC10C500BAE582 /* AVKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F03E11AD46B0200991B5C /* AVKit.framework */; };
-		0F07296E1ADC10D200BAE582 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1EA72E1ADC0F27005CA988 /* SQLite.framework */; };
-		0F07296F1ADC10D700BAE582 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F1EA72E1ADC0F27005CA988 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0F0729701ADC10D700BAE582 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F1EA7321ADC0F27005CA988 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0F1EA7391ADC0F41005CA988 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1EA72E1ADC0F27005CA988 /* SQLite.framework */; };
 		0F1EA73A1ADC0F46005CA988 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F1EA72E1ADC0F27005CA988 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0F1EA73B1ADC0F46005CA988 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F1EA7321ADC0F27005CA988 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0F578A211AB9F1AE00D049AC /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F578A201AB9F1AE00D049AC /* settingsViewController.swift */; };
 		0F5C25F31AD5D90A0087F5B4 /* icon_small_settings1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C25F21AD5D90A0087F5B4 /* icon_small_settings1.png */; };
 		0F5C25F41AD5D94E0087F5B4 /* icon_small_settings1.png in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C25F21AD5D90A0087F5B4 /* icon_small_settings1.png */; };
@@ -25,22 +20,13 @@
 		0F5C2A5D1AB89424003E250A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A5B1AB89424003E250A /* Main.storyboard */; };
 		0F5C2A5F1AB89424003E250A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A5E1AB89424003E250A /* Images.xcassets */; };
 		0F5C2A621AB89424003E250A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A601AB89424003E250A /* LaunchScreen.xib */; };
-		0F5C2A6E1AB89424003E250A /* SpeedLimitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A6D1AB89424003E250A /* SpeedLimitTests.swift */; };
 		0F6F03DB1AD46AC200991B5C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F74A4231AC9D40900A2B6F2 /* AVFoundation.framework */; };
-		0F6F03E21AD46B0200991B5C /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6F03E11AD46B0200991B5C /* AVKit.framework */; };
 		0F6F03E61AD46C5900991B5C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6F03E51AD46C5900991B5C /* libsqlite3.dylib */; };
 		0F7AB75E1ABB8C2E0043B479 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */; };
 		0FE775D31AD5D7430034AE78 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE775D21AD5D7430034AE78 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0F07296B1ADC10BB00BAE582 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
-			remoteInfo = SQLite;
-		};
 		0F1EA72D1ADC0F27005CA988 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
@@ -99,8 +85,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0F07296F1ADC10D700BAE582 /* SQLite.framework in CopyFiles */,
-				0F0729701ADC10D700BAE582 /* SQLite.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +95,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0F1EA73A1ADC0F46005CA988 /* SQLite.framework in CopyFiles */,
-				0F1EA73B1ADC0F46005CA988 /* SQLite.framework in CopyFiles */,
 				0F5C25F61AD5D9900087F5B4 /* AVFoundation.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,8 +140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F07296E1ADC10D200BAE582 /* SQLite.framework in Frameworks */,
-				0F6F03E21AD46B0200991B5C /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +260,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				0F07296C1ADC10BB00BAE582 /* PBXTargetDependency */,
 				0F5C2A691AB89424003E250A /* PBXTargetDependency */,
 			);
 			name = SpeedLimitTests;
@@ -409,19 +389,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F07296D1ADC10C500BAE582 /* AVKit.framework in Sources */,
-				0F5C2A6E1AB89424003E250A /* SpeedLimitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0F07296C1ADC10BB00BAE582 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SQLite;
-			targetProxy = 0F07296B1ADC10BB00BAE582 /* PBXContainerItemProxy */;
-		};
 		0F1EA7381ADC0F39005CA988 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SQLite;

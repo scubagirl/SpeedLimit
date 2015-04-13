@@ -4,20 +4,20 @@ provides:
 nominals:
 - "C10SpeedLimit22settingsViewController"
 class-members:
+- "backButton"
 - "viewDidLoad"
 - "didReceiveMemoryWarning"
-- "backButton"
 top-level:
-- "UIViewController"
-- "AnyObject"
 - !private "BooleanLiteralType"
+- "AnyObject"
+- "UIViewController"
 member-access:
+- "C10SpeedLimit22settingsViewController"
 - "CSo11UIResponder"
+- !private "CSo22UINavigationController"
 - "CSo8NSObject"
 - "CSo16UIViewController"
-- "C10SpeedLimit22settingsViewController"
 - "PSs9AnyObject"
-- !private "CSo22UINavigationController"
 dynamic-lookup:
 cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Swift.swiftmodule"
