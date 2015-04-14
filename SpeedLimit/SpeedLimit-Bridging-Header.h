@@ -10,5 +10,10 @@
 #define SpeedLimit_SpeedLimit_Bridging_Header_h
 
 #import <sqlite3.h>
+#import "SpeechRecognition.h"
+#import <OpenEars/OELanguageModelGenerator.h>
+#import <OpenEars/OEAcousticModel.h>
+#import <OpenEars/OEPocketsphinxController.h>
+#import <OpenEars/OEEventsObserver.h>
 
 #endif

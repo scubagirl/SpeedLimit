@@ -7,10 +7,10 @@
 import UIKit
 import CoreLocation
 import AVFoundation
-import SQLite
+//import SQLite
 
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, OEEventsObserverDelegate {
    
    let synth = AVSpeechSynthesizer()
    
@@ -25,6 +25,15 @@ class ViewController: UIViewController{
    var speedTimer = NSTimer()
    var myUtterance = AVSpeechUtterance(string:"")
    var alreadySpeeding: Bool = false
+   
+   //vars for speech recognition
+   var lmPath: String!
+   var dicPath: String!
+   var words: Array<String> = ["SPEED LIMIT", "SPEED"]
+   var currentWord: String!
+   let openEarsEventsObserver = OEEventsObserver()
+   var fliteContoroller = OEFliteController()
+   var slt = Slt()
    
    @IBOutlet var speedLimitLabel: UILabel! = nil
    
@@ -50,8 +59,36 @@ class ViewController: UIViewController{
       speedLimitLabel.font = UIFont.boldSystemFontOfSize(30.0)
       speedLimitLabel.text = "Speed Limit:"
       locationManager.checkLocationServices()
+      
       timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateSpeed"), userInfo: nil, repeats: true)
       speedTimer = NSTimer.scheduledTimerWithTimeInterval(300, target:self, selector: Selector("speakWarning"), userInfo: nil, repeats: true)
+      
+      
+      
+      openEarsEventsObserver.delegate = self
+      
+      var lmGenerator = OELanguageModelGenerator()
+      var words = ["SPEED LIMIT", "NOT"]
+      
+      
+      var name = "languageModelFiles"
+      var err: NSError? = lmGenerator.generateLanguageModelFromArray(words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"))
+      
+      var lmPath: String?
+      
+      var dicPath: String?
+      
+      if err == nil {
+         lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModelWithRequestedName(name)
+         dicPath = lmGenerator.pathToSuccessfullyGeneratedDictionaryWithRequestedName(name)
+      } else {
+         println("Error: \(err!)")
+      }
+      
+      OEPocketsphinxController.sharedInstance().setActive(true, error: nil)
+      OEPocketsphinxController.sharedInstance().startListeningWithLanguageModelAtPath(lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"), languageModelIsJSGF: false)
+      
+      
    }
    
    //need to change to get the speed limit from the database instead and compare to current speed
@@ -89,10 +126,6 @@ class ViewController: UIViewController{
       }
    }
    
-   func speakWarning(){
-      
-   }
-   
    func fetchSpeedLimitData(){
       let direc = locationManager.getDirection()
       var lat = locationManager.getCoord().latitude
@@ -120,17 +153,69 @@ class ViewController: UIViewController{
    
    @IBAction func settingsButton(sender: AnyObject) {
       
-      let settingsView = self.storyboard?.instantiateViewControllerWithIdentifier("settingsView") as settingsViewController
+      let settingsView = self.storyboard?.instantiateViewControllerWithIdentifier("settingsView") as! settingsViewController
       self.navigationController?.pushViewController(settingsView, animated: true)
       
    }
    
    @IBAction func speedLimitButton(sender: UIButton) {
       
-      //Implement push to read text
+      fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
       
    }
    
    
+   /*Speech Recognition - 
+      CODE FROM :https://gist.github.com/allenjwong/b962972d64904d2217bc
+   */
+   func pocketsphinxDidReceiveHypothesis(hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
+      
+      //Start: Our Code
+      if (hypothesis == "SPEED LIMIT"){
+         fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
+      }
+      //End: Our Code
+      println("The received hypothesis is \(hypothesis) with a score of \(recognitionScore) and an ID of \(utteranceID)")
+   }
+   
+   func pocketsphinxDidStartListening() {
+      println("Pocketsphinx is now listening.")
+   }
+   
+   func pocketsphinxDidDetectSpeech() {
+      println("Pocketsphinx has detected speech.")
+   }
+   
+   func pocketsphinxDidDetectFinishedSpeech() {
+      println("Pocketsphinx has detected a period of silence, concluding an utterance.")
+   }
+   
+   func pocketsphinxDidStopListening() {
+      println("Pocketsphinx has stopped listening.")
+   }
+   
+   func pocketsphinxDidSuspendRecognition() {
+      println("Pocketsphinx has suspended recognition.")
+   }
+   
+   func pocketsphinxDidResumeRecognition() {
+      println("Pocketsphinx has resumed recognition.")
+   }
+   
+   func pocketsphinxDidChangeLanguageModelToFile(newLanguageModelPathAsString: String!, andDictionary newDictionaryPathAsString: String!) {
+      println("Pocketsphinx is now using the following language model: \(newLanguageModelPathAsString) and the following dictionary: \(newDictionaryPathAsString)")
+   }
+   
+   func pocketSphinxContinuousSetupDidFailWithReason(reasonForFailure: String!) {
+      println("Listening setup wasn't successful and returned the failure reason: \(reasonForFailure)")
+   }
+   
+   func pocketSphinxContinuousTeardownDidFailWithReason(reasonForFailure: String!) {
+      println("Listening teardown wasn't successful and returned the failure reason: \(reasonForFailure)")
+   }
+   
+   func testRecognitionCompleted() {
+      println("A test file that was submitted for recognition is now complete.")
+   }
 }
 

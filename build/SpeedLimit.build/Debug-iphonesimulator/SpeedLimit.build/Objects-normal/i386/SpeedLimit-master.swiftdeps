@@ -1,0 +1,7 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.49.3 clang-clang-602.0.49)"
+options: "fcbbdcf79f38cb01d3691d67c59bfdb9"
+inputs: 
+- "/Users/ScubaGirl/Desktop/Spring2015/SpeedLimit2/SpeedLimit/ViewController.swift"
+- "/Users/ScubaGirl/Desktop/Spring2015/SpeedLimit2/SpeedLimit/AppDelegate.swift"
+- "/Users/ScubaGirl/Desktop/Spring2015/SpeedLimit2/SpeedLimit/LocationManager.swift"
+- "/Users/ScubaGirl/Desktop/Spring2015/SpeedLimit2/SpeedLimit/settingsViewController.swift"
