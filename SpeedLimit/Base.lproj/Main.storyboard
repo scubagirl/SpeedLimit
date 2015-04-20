@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,33 +17,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PL-rl-kxh">
-                                <rect key="frame" x="122" y="274" width="130" height="119"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PL-rl-kxh">
+                                <rect key="frame" x="93" y="284" width="188" height="170"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Speed Limit:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZc-HB-0zT">
-                                <rect key="frame" x="96" y="200" width="182" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Limit:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZc-HB-0zT">
+                                <rect key="frame" x="16" y="204" width="343" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-B4-J7I">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-B4-J7I">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="S3O-jx-m1W"/>
+                                </constraints>
+                                <textAttributes key="titleTextAttributes">
+                                    <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem id="qEv-pc-qmU">
-                                        <barButtonItem key="leftBarButtonItem" image="icon_small_settings1.png" id="Snm-a0-Lql">
+                                        <barButtonItem key="leftBarButtonItem" image="settings_icon.png" id="Snm-a0-Lql">
+                                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="settingsButton:" destination="vXZ-lx-hvc" id="wmw-QC-VMI"/>
-                                                <segue destination="H8d-ws-IRW" kind="show" id="Ex4-Xc-Qd6"/>
+                                                <segue destination="H8d-ws-IRW" kind="show" identifier="settingsSegue" id="Ex4-Xc-Qd6"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8l0-9d-pdF">
-                                <rect key="frame" x="-16" y="56" width="375" height="627"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="You are going more than 5 miles over the speed limit. Please slow down." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-lK-I3p">
+                                <rect key="frame" x="101" y="79" width="172" height="102"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="L3e-MT-qlK"/>
+                                    <constraint firstAttribute="height" constant="102" id="PIS-K3-8Fq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8l0-9d-pdF">
+                                <rect key="frame" x="0.0" y="64" width="375" height="595"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,19 +72,48 @@
                                     <action selector="speedLimitButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9gX-ad-tvV"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="You are going more than 5 miles over the speed limit. Please slow down." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-lK-I3p">
-                                <rect key="frame" x="101" y="80" width="172" height="102"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CZc-HB-0zT" firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" id="2ru-sg-6Hw"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="top" secondItem="pUf-B4-J7I" secondAttribute="bottom" constant="15" id="2sW-cs-4l3"/>
+                            <constraint firstItem="pUf-B4-J7I" firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" id="4A3-Pe-01f"/>
+                            <constraint firstItem="8PL-rl-kxh" firstAttribute="top" secondItem="CZc-HB-0zT" secondAttribute="bottom" constant="41" id="4HK-ey-k9Q"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="85" id="4tP-d0-59J"/>
+                            <constraint firstItem="8PL-rl-kxh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="77" id="Ags-K2-UtQ"/>
+                            <constraint firstAttribute="centerY" secondItem="8PL-rl-kxh" secondAttribute="centerY" constant="-35.5" id="DdX-dY-T7H"/>
+                            <constraint firstItem="CZc-HB-0zT" firstAttribute="top" secondItem="hLY-lK-I3p" secondAttribute="bottom" constant="23" id="Gz6-2X-ImE"/>
+                            <constraint firstAttribute="centerY" secondItem="CZc-HB-0zT" secondAttribute="centerY" constant="110" id="Mh1-Ly-pGn"/>
+                            <constraint firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" constant="0.5" id="MtR-Jm-yy3"/>
+                            <constraint firstAttribute="trailing" secondItem="pUf-B4-J7I" secondAttribute="trailing" id="O19-hb-1Z1"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8l0-9d-pdF" secondAttribute="bottom" constant="8" symbolic="YES" id="PYz-Fo-URB"/>
+                            <constraint firstItem="8l0-9d-pdF" firstAttribute="leading" secondItem="pUf-B4-J7I" secondAttribute="leading" id="Qcq-Y2-i2z"/>
+                            <constraint firstItem="CZc-HB-0zT" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="TDv-lG-NTD"/>
+                            <constraint firstItem="pUf-B4-J7I" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Tuz-pv-8GQ"/>
+                            <constraint firstAttribute="centerX" secondItem="pUf-B4-J7I" secondAttribute="centerX" id="XFB-Vy-2Ed"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8PL-rl-kxh" secondAttribute="bottom" constant="213" id="aqw-Lt-2UV"/>
+                            <constraint firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" constant="0.5" id="bfh-Nx-cFr"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="85" id="gsH-5O-Rin"/>
+                            <constraint firstItem="8l0-9d-pdF" firstAttribute="trailing" secondItem="pUf-B4-J7I" secondAttribute="trailing" id="jod-eO-M0F"/>
+                            <constraint firstAttribute="centerX" secondItem="8PL-rl-kxh" secondAttribute="centerX" constant="0.5" id="mLD-nM-Tug"/>
+                            <constraint firstItem="pUf-B4-J7I" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="oI4-ea-Clo"/>
+                            <constraint firstItem="8l0-9d-pdF" firstAttribute="top" secondItem="pUf-B4-J7I" secondAttribute="bottom" id="rKf-p5-RRu"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="centerX" secondItem="CZc-HB-0zT" secondAttribute="centerX" id="zkp-ab-DQ0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4A3-Pe-01f"/>
+                                <exclude reference="4tP-d0-59J"/>
+                                <exclude reference="bfh-Nx-cFr"/>
+                                <exclude reference="gsH-5O-Rin"/>
+                                <exclude reference="zkp-ab-DQ0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="navBar" destination="pUf-B4-J7I" id="R89-0B-IMi"/>
                         <outlet property="outputLabel" destination="8PL-rl-kxh" id="bJi-Qs-Pmf"/>
                         <outlet property="overTextView" destination="hLY-lK-I3p" id="Z3w-YL-day"/>
                         <outlet property="speedLimitLabel" destination="CZc-HB-0zT" id="Pak-JS-yXj"/>
@@ -71,12 +121,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="489.5" y="560.5"/>
+            <point key="canvasLocation" x="333.5" y="586.5"/>
         </scene>
         <!--Title-->
         <scene sceneID="BrR-8z-Kgz">
             <objects>
-                <viewController storyboardIdentifier="settingsView" id="H8d-ws-IRW" customClass="settingsViewController" customModule="SpeedLimit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsView" id="H8d-ws-IRW" customClass="SettingsViewController" customModule="SpeedLimit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="20T-mO-vHM"/>
                         <viewControllerLayoutGuide type="bottom" id="bb2-E7-a97"/>
@@ -85,26 +135,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-uB-7Y3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <items>
-                                    <navigationItem id="HBS-J1-bgH">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="qG1-VH-n1l">
-                                            <connections>
-                                                <action selector="backButton:" destination="H8d-ws-IRW" id="LNo-PQ-ZpR"/>
-                                                <segue destination="vXZ-lx-hvc" kind="show" id="Hfk-ii-F7z"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yellow Background:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXk-AW-BHa">
                                 <rect key="frame" x="26" y="198" width="152" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioO-Y1-UEV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioO-Y1-UEV">
                                 <rect key="frame" x="165" y="222" width="49" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -115,7 +152,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="5" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hqu-fh-etj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="5" borderStyle="roundedRect" placeholder="5" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hqu-fh-etj">
                                 <rect key="frame" x="165" y="287" width="49" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -159,16 +196,39 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Note: Yellow alert speed must be lower than red alert speed." borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pm-yj-WA5">
-                                <rect key="frame" x="10" y="325" width="358" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Note: Yellow alert speed must be lower than red alert speed." translatesAutoresizingMaskIntoConstraints="NO" id="Wup-Lo-l5x">
+                                <rect key="frame" x="26" y="325" width="241" height="54"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-uB-7Y3">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem id="HBS-J1-bgH">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="qG1-VH-n1l">
+                                            <connections>
+                                                <action selector="backButton:" destination="H8d-ws-IRW" id="LNo-PQ-ZpR"/>
+                                                <segue destination="vXZ-lx-hvc" kind="show" identifier="mainSegue" id="ePS-rD-9ER"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="Quc-nf-XXi"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="redSettingsSpeed" destination="Hqu-fh-etj" id="EoO-Cs-bcJ"/>
+                        <outlet property="voiceToggle" destination="PMn-kG-vUA" id="p6a-DI-ujC"/>
+                        <outlet property="yellowSettingsSpeed" destination="ioO-Y1-UEV" id="RPM-vk-sgN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wjg-Fz-1Fv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,6 +236,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_small_settings1.png" width="35" height="38"/>
+        <image name="settings_icon.png" width="35" height="38"/>
     </resources>
 </document>

@@ -6,158 +6,201 @@
 
 import UIKit
 import CoreLocation
-import AVFoundation
-//import SQLite
 
 
 class ViewController: UIViewController, OEEventsObserverDelegate {
-   
-   let synth = AVSpeechSynthesizer()
-   
    var locationManager: LocationManager!
    var currentSpeed : NSNumber = 0.0
    var speedLimit : Int = 0
    var yellowSpeed : Int = 0
    var redSpeed : Int = 5
-   var currentLocation: CLLocation! = nil
-   @IBOutlet var outputLabel: UILabel! = nil
-   var timer = NSTimer()
-   var speedTimer = NSTimer()
-   var myUtterance = AVSpeechUtterance(string:"")
-   var alreadySpeeding: Bool = false
+   var currentLocation : CLLocation! = nil
+   var viewFirstLoad : Bool = true
    
-   //vars for speech recognition
-   var lmPath: String!
-   var dicPath: String!
-   var words: Array<String> = ["SPEED LIMIT", "SPEED"]
-   var currentWord: String!
+   /* Timers/Intervals */
+   var speedUpdateTimer = NSTimer()
+   var startTime : NSTimeInterval = 0
+   var currentTime = NSDate.timeIntervalSinceReferenceDate()
+   
+   /* Variables for Speech Recognition */
+   var speakAlert: Bool = true                        //toggle alerts on
    let openEarsEventsObserver = OEEventsObserver()
    var fliteContoroller = OEFliteController()
-   var slt = Slt()
+   var slt = Slt()                                    //voice
+   var lmGenerator = OELanguageModelGenerator()
+   var words = ["SPEED LIMIT", "NOT"]
+   var name = "languageModelFiles"
+   var lmPath: String?
+   var dicPath: String?
    
-   @IBOutlet var speedLimitLabel: UILabel! = nil
+   /*Label Variables*/
+   @IBOutlet var outputLabel: UILabel! = nil          //current speed limit
+   @IBOutlet var speedLimitLabel: UILabel! = nil      //"Speed Limit:"
+   @IBOutlet weak var overTextView: UITextView!       //speeding warning
    
-   @IBOutlet weak var overTextView: UITextView!
-   
-//   
-//      let db = Database("\(dbPath)/db.sqlite3")
-//   
-//      let speedlimit_table = db["SpeedLimits"]
-//      let latitude = Expression<Double>("latitude")
-//      let longitude = Expression<Double>("longitude")
-//      let direction = Expression<Int>("direction")
-//      let speedlimit_db = Expression<String?>("speedlimit")
-   
-
+   @IBOutlet weak var navBar: UINavigationBar!
    
    override func viewDidLoad() {
       
       overTextView.hidden = true
+      overTextView.text = "You are going more than \(redSpeed) miles over the speed limit. Please slow down."
       super.viewDidLoad()
+      
+      /* Makes Navigation bar translucent */
+      navBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+      navBar.shadowImage = UIImage()
+      navBar.translucent = true
+      /* End nav bar settings*/
+      
       locationManager = LocationManager()
-      outputLabel.font = UIFont.boldSystemFontOfSize(60.0)
-      speedLimitLabel.font = UIFont.boldSystemFontOfSize(30.0)
+      outputLabel.font = UIFont.boldSystemFontOfSize(80.0)
+      speedLimitLabel.font = UIFont.boldSystemFontOfSize(25)
       speedLimitLabel.text = "Speed Limit:"
+      
       locationManager.checkLocationServices()
+
+      speedUpdateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateSpeed"), userInfo: nil, repeats: true)
       
-      timer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateSpeed"), userInfo: nil, repeats: true)
-      speedTimer = NSTimer.scheduledTimerWithTimeInterval(300, target:self, selector: Selector("speakWarning"), userInfo: nil, repeats: true)
-      
-      
-      
-      openEarsEventsObserver.delegate = self
-      
-      var lmGenerator = OELanguageModelGenerator()
-      var words = ["SPEED LIMIT", "NOT"]
-      
-      
-      var name = "languageModelFiles"
-      var err: NSError? = lmGenerator.generateLanguageModelFromArray(words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"))
-      
-      var lmPath: String?
-      
-      var dicPath: String?
-      
-      if err == nil {
-         lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModelWithRequestedName(name)
-         dicPath = lmGenerator.pathToSuccessfullyGeneratedDictionaryWithRequestedName(name)
-      } else {
-         println("Error: \(err!)")
+      if(viewFirstLoad){
+         /* Speech Recognition setup */
+         openEarsEventsObserver.delegate = self
+         
+         var err: NSError? = lmGenerator.generateLanguageModelFromArray(words, withFilesNamed: name, forAcousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"))
+         
+         if err == nil {
+            lmPath = lmGenerator.pathToSuccessfullyGeneratedLanguageModelWithRequestedName(name)
+            dicPath = lmGenerator.pathToSuccessfullyGeneratedDictionaryWithRequestedName(name)
+         } else {
+            println("Error: \(err!)")
+         }
+         
+         OEPocketsphinxController.sharedInstance().setActive(true, error: nil)
+         OEPocketsphinxController.sharedInstance().startListeningWithLanguageModelAtPath(lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"), languageModelIsJSGF: false)
+         /* End Speech Recognition Setup*/
       }
-      
-      OEPocketsphinxController.sharedInstance().setActive(true, error: nil)
-      OEPocketsphinxController.sharedInstance().startListeningWithLanguageModelAtPath(lmPath, dictionaryAtPath: dicPath, acousticModelAtPath: OEAcousticModel.pathToModel("AcousticModelEnglish"), languageModelIsJSGF: false)
-      
-      
    }
    
-   //need to change to get the speed limit from the database instead and compare to current speed
+   /* Updates the SpeedLimit and triggers backgrounds colors and alerts */
    func updateSpeed(){
       
       fetchSpeedLimitData()
       updateCurrentSpeed()
       
-      //temporary
-      currentSpeed = 50
-      speedLimit = 30
-      //end temporary
       
-      outputLabel.font = UIFont.boldSystemFontOfSize(60.0)
-      outputLabel.text = "\(speedLimit)"
-      
-      if(currentSpeed.integerValue < speedLimit + yellowSpeed){
+      if(speedLimit == 0){
+         outputLabel.font = UIFont.boldSystemFontOfSize(25)
+         outputLabel.text = "Unknown"
+      }
+      else if(currentSpeed.integerValue < speedLimit + yellowSpeed){
+         outputLabel.text = "\(speedLimit)"
          overTextView.hidden = true
          self.view.backgroundColor = UIColor.whiteColor()
-         alreadySpeeding = false
       }
       else if(currentSpeed.integerValue < speedLimit + redSpeed && currentSpeed.integerValue >= speedLimit + yellowSpeed){
+         outputLabel.font = UIFont.boldSystemFontOfSize(80.0)
+         outputLabel.text = "\(speedLimit)"
          overTextView.hidden = true
          self.view.backgroundColor = UIColor.yellowColor()
       }
       else{
          overTextView.hidden = false
-         alreadySpeeding = true
+         outputLabel.font = UIFont.boldSystemFontOfSize(80.0)
+         outputLabel.text = "\(speedLimit)"
          self.view.backgroundColor = UIColor.redColor()
-         if(alreadySpeeding == false){
-            myUtterance = AVSpeechUtterance(string: overTextView.text)
-            myUtterance.rate = 0.1
-            synth.speakUtterance(myUtterance)
+         if(startTime == 0 || calcElapsedTime()/60 > 5){
+            startTime = NSDate.timeIntervalSinceReferenceDate()
+            speakWarning()
          }
       }
    }
    
-   func fetchSpeedLimitData(){
-      let direc = locationManager.getDirection()
-      var lat = locationManager.getCoord().latitude
-      var long = locationManager.getCoord().longitude
-      
-      
-      
-      //      let latitude = Expression<Double>("latitude")
-      //      let longitude = Expression<Double>("longitude")
-      //      let direction = Expression<Int>("direction")
-      //      let speedlimit_db = Expression<String?>("speedlimit")
-
-      
-      //      let query = db.speedlimit_table.select(speedlimit_db)	//SELECT "speedlimit" FROM "SpeedLimits"
-      //         .filter(latitude == lat.doubleValue && longitude == long.doubleValue && direction == direc.integerValue) //WHERE (latitude = lat && longitude = long && direction = direc)
-      //assuming variables work like this and && = AND
-      
-      speedLimit = 0
+   
+   /* Calculates time elapsed from last SpeakWarning() Alert */
+   func calcElapsedTime() -> NSTimeInterval{
+      var currentTime = NSDate.timeIntervalSinceReferenceDate()
+      var elapsedTime: NSTimeInterval = currentTime - startTime
+      return elapsedTime
    }
    
+   /* Speaks an Alert if a speakWarning is set to true */
+   func speakWarning(){
+      if(speakAlert){
+         fliteContoroller.say("You are going more than \(redSpeed) miles over the speed limit. Please slow down.", withVoice: slt)
+      }
+      
+   }
+   
+   /* Fetches Speed Limit Data */
+   func fetchSpeedLimitData(){
+      
+      var lat = locationManager.getCoord().latitude
+      var long = locationManager.getCoord().longitude
+      var found = false
+      let dbPath = NSBundle.mainBundle().pathForResource("SpeedLimitDatabase", ofType:"sqlite3")
+      let database = FMDatabase(path: dbPath)
+      var direc: String = ""
+      let numDirec = locationManager.getDirection()
+      
+      /* Determine direction travelled. */
+      if(numDirec > 270 && numDirec < 90){
+         direc = "N"
+      }
+      else{
+         direc = "S"
+      }
+      
+      /* Open and query the database file. */
+      if(!database.open()){
+         println("Unable to open database")
+         return
+      }
+      
+      if let rs = database.executeQuery("select * from SpeedLimits", withArgumentsInArray: nil){
+         while(rs.next() && found == false){
+            let latMax = rs.stringForColumn("latitudeMax") //hkEdits---------
+            let longMax = rs.stringForColumn("longitudeMax")
+            let latMin = rs.stringForColumn("latitudeMin")
+            let longMin = rs.stringForColumn("longitudeMin")
+            let direction = rs.stringForColumn("direction")
+            let speedlimitString = rs.stringForColumn("speedlimit")
+            
+            let latitudeMax = (latMax as NSString).doubleValue
+            let longitudeMax = (longMax as NSString).doubleValue
+            let latitudeMin = (latMin as NSString).doubleValue
+            let longitudeMin = (longMin as NSString).doubleValue
+            let speedlimit = speedlimitString.toInt()
+            
+            if(lat > latitudeMin && long > longitudeMin && lat > latitudeMin && long > longitudeMin && direc == direction){//hkedits-------
+               speedLimit = speedlimit!
+               found == true
+            }
+         }
+      } else {
+         println("executeQuery failed: \(database.lastErrorMessage())")
+      }
+      
+      database.close()
+   }
+   
+   /* Updates the Current Speed */
    func updateCurrentSpeed(){
       currentSpeed = locationManager.getSpeed()
    }
    
-   
-   @IBAction func settingsButton(sender: AnyObject) {
-      
-      let settingsView = self.storyboard?.instantiateViewControllerWithIdentifier("settingsView") as! settingsViewController
-      self.navigationController?.pushViewController(settingsView, animated: true)
-      
+   /* Settings Button Segue - Passes variables to settings view */
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+      if segue.identifier == "settingsSegue"{
+         if let settingsView = segue.destinationViewController as? SettingsViewController{
+            settingsView.setToggle = speakAlert
+            settingsView.redText = String(redSpeed)
+            settingsView.yellowText = String(yellowSpeed)
+            settingsView.settingsStartTime = startTime
+         }
+         
+      }
    }
    
+   /* Main View Primary Button - Speaks Speed Limit */
    @IBAction func speedLimitButton(sender: UIButton) {
       
       fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
@@ -165,16 +208,17 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    }
    
    
-   /*Speech Recognition - 
+   /* Speech Recognition -
       CODE FROM :https://gist.github.com/allenjwong/b962972d64904d2217bc
    */
    func pocketsphinxDidReceiveHypothesis(hypothesis: String!, recognitionScore: String!, utteranceID: String!) {
       
-      //Start: Our Code
+      /* Start: Our Code */
       if (hypothesis == "SPEED LIMIT"){
          fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
       }
-      //End: Our Code
+      /* End: Our Code */
+      
       println("The received hypothesis is \(hypothesis) with a score of \(recognitionScore) and an ID of \(utteranceID)")
    }
    
@@ -217,5 +261,6 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    func testRecognitionCompleted() {
       println("A test file that was submitted for recognition is now complete.")
    }
+   /* End Speech Recognition Code*/
 }
 

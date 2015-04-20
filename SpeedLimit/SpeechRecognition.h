@@ -10,11 +10,13 @@
 #import <Slt/Slt.h>
 #import <OpenEars/OEFliteController.h>
 #import <OpenEars/OEEventsObserver.h>
+//#import <OpenEars/OEPocketsphinxController.h>
 
 
 @interface ViewController : UIViewController <OEEventsObserverDelegate>
 
 @property (strong, nonatomic) OEEventsObserver *openEarsEventsObserver;
+//@property (strong, nonatomic) OEPocketsphinxController *openEarsEventsObserver;
 @property (strong, nonatomic) OEFliteController *fliteController;
 @property (strong, nonatomic) Slt *slt;
 

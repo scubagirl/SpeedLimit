@@ -7,72 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F1EA7391ADC0F41005CA988 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F1EA72E1ADC0F27005CA988 /* SQLite.framework */; };
-		0F1EA73A1ADC0F46005CA988 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F1EA72E1ADC0F27005CA988 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0F5419BC1ADC51F60070778D /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5419BA1ADC51F60070778D /* OpenEars.framework */; };
 		0F5419BD1ADC51F60070778D /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5419BB1ADC51F60070778D /* Slt.framework */; };
-		0F5419C41ADD7B4E0070778D /* SpeechRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5419C31ADD7B4E0070778D /* SpeechRecognition.m */; };
-		0F578A211AB9F1AE00D049AC /* settingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F578A201AB9F1AE00D049AC /* settingsViewController.swift */; };
-		0F5C25F31AD5D90A0087F5B4 /* icon_small_settings1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C25F21AD5D90A0087F5B4 /* icon_small_settings1.png */; };
-		0F5C25F41AD5D94E0087F5B4 /* icon_small_settings1.png in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C25F21AD5D90A0087F5B4 /* icon_small_settings1.png */; };
-		0F5C25F51AD5D9560087F5B4 /* AVKit.framework in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F03E11AD46B0200991B5C /* AVKit.framework */; };
-		0F5C25F61AD5D9900087F5B4 /* AVFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0F74A4231AC9D40900A2B6F2 /* AVFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0F578A211AB9F1AE00D049AC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F578A201AB9F1AE00D049AC /* SettingsViewController.swift */; };
+		0F5C25F31AD5D90A0087F5B4 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C25F21AD5D90A0087F5B4 /* settings_icon.png */; };
 		0F5C2A551AB89424003E250A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A541AB89424003E250A /* AppDelegate.swift */; };
 		0F5C2A581AB89424003E250A /* SpeedLimit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A561AB89424003E250A /* SpeedLimit.xcdatamodeld */; };
 		0F5C2A5A1AB89424003E250A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5C2A591AB89424003E250A /* ViewController.swift */; };
 		0F5C2A5D1AB89424003E250A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A5B1AB89424003E250A /* Main.storyboard */; };
 		0F5C2A5F1AB89424003E250A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A5E1AB89424003E250A /* Images.xcassets */; };
 		0F5C2A621AB89424003E250A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A601AB89424003E250A /* LaunchScreen.xib */; };
-		0F6F03DB1AD46AC200991B5C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F74A4231AC9D40900A2B6F2 /* AVFoundation.framework */; };
-		0F6F03E61AD46C5900991B5C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6F03E51AD46C5900991B5C /* libsqlite3.dylib */; };
 		0F7AB75E1ABB8C2E0043B479 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */; };
 		0F9065BC1ADDA5C500D312F7 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F9065BB1ADDA5C500D312F7 /* AcousticModelEnglish.bundle */; };
+		0FA878541AE1CF2300ACE01F /* SpeedLimitDatabase.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F9EDBFB1AE1CB1C00016E0A /* SpeedLimitDatabase.sqlite3 */; };
+		0FBC8F321ADEF0660025B6F6 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F281ADEF0660025B6F6 /* FMDatabase.m */; };
+		0FBC8F331ADEF0660025B6F6 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F2A1ADEF0660025B6F6 /* FMDatabaseAdditions.m */; };
+		0FBC8F341ADEF0660025B6F6 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F2C1ADEF0660025B6F6 /* FMDatabasePool.m */; };
+		0FBC8F351ADEF0660025B6F6 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F2E1ADEF0660025B6F6 /* FMDatabaseQueue.m */; };
+		0FBC8F361ADEF0660025B6F6 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F311ADEF0660025B6F6 /* FMResultSet.m */; };
+		0FBC8F371ADEF0D60025B6F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F6F03E51AD46C5900991B5C /* libsqlite3.dylib */; };
 		0FE775D31AD5D7430034AE78 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0FE775D21AD5D7430034AE78 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0F1EA72D1ADC0F27005CA988 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DC3773F319C8CBB3004FCF85;
-			remoteInfo = SQLite;
-		};
-		0F1EA72F1ADC0F27005CA988 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DC3773FE19C8CBB3004FCF85;
-			remoteInfo = "SQLite Tests";
-		};
-		0F1EA7311ADC0F27005CA988 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCC6B3801A9191C300734B78;
-			remoteInfo = SQLiteCipher;
-		};
-		0F1EA7331ADC0F27005CA988 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCC6B3921A9191D100734B78;
-			remoteInfo = "SQLiteCipher Tests";
-		};
-		0F1EA7351ADC0F27005CA988 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCAE4D151ABE0B3300EFCE7A;
-			remoteInfo = sqlite3;
-		};
-		0F1EA7371ADC0F39005CA988 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
-			remoteInfo = SQLite;
-		};
 		0F5C2A681AB89424003E250A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0F5C2A471AB89424003E250A /* Project object */;
@@ -98,22 +55,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0F1EA73A1ADC0F46005CA988 /* SQLite.framework in CopyFiles */,
-				0F5C25F61AD5D9900087F5B4 /* AVFoundation.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = SpeedLimit.xcodeproj/../../SQLite.swift/SQLite.xcodeproj; sourceTree = "<group>"; };
 		0F5419BA1ADC51F60070778D /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		0F5419BB1ADC51F60070778D /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		0F5419C11ADD7B4E0070778D /* SpeedLimit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeedLimit-Bridging-Header.h"; sourceTree = "<group>"; };
 		0F5419C21ADD7B4E0070778D /* SpeechRecognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeechRecognition.h; sourceTree = "<group>"; };
-		0F5419C31ADD7B4E0070778D /* SpeechRecognition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeechRecognition.m; sourceTree = "<group>"; };
-		0F578A201AB9F1AE00D049AC /* settingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingsViewController.swift; sourceTree = "<group>"; };
-		0F5C25F21AD5D90A0087F5B4 /* icon_small_settings1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_small_settings1.png; sourceTree = "<group>"; };
+		0F578A201AB9F1AE00D049AC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0F5C25F21AD5D90A0087F5B4 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
 		0F5C2A4F1AB89424003E250A /* SpeedLimit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedLimit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5C2A531AB89424003E250A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F5C2A541AB89424003E250A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -125,12 +78,21 @@
 		0F5C2A671AB89424003E250A /* SpeedLimitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedLimitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5C2A6C1AB89424003E250A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F5C2A6D1AB89424003E250A /* SpeedLimitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedLimitTests.swift; sourceTree = "<group>"; };
-		0F6F03E11AD46B0200991B5C /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		0F6F03E51AD46C5900991B5C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		0F74A4231AC9D40900A2B6F2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0F9065BB1ADDA5C500D312F7 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
-		0FAC86F71AD4868000108BE3 /* SpeedLimitDatabase.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpeedLimitDatabase.sqlite3; sourceTree = SOURCE_ROOT; };
+		0F9EDBFB1AE1CB1C00016E0A /* SpeedLimitDatabase.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpeedLimitDatabase.sqlite3; sourceTree = "<group>"; };
+		0FBC8F271ADEF0660025B6F6 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		0FBC8F281ADEF0660025B6F6 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		0FBC8F291ADEF0660025B6F6 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		0FBC8F2A1ADEF0660025B6F6 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		0FBC8F2B1ADEF0660025B6F6 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		0FBC8F2C1ADEF0660025B6F6 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		0FBC8F2D1ADEF0660025B6F6 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		0FBC8F2E1ADEF0660025B6F6 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		0FBC8F2F1ADEF0660025B6F6 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		0FBC8F301ADEF0660025B6F6 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		0FBC8F311ADEF0660025B6F6 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		0FE775D21AD5D7430034AE78 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,10 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FBC8F371ADEF0D60025B6F6 /* libsqlite3.dylib in Frameworks */,
 				0F5419BD1ADC51F60070778D /* Slt.framework in Frameworks */,
-				0F1EA7391ADC0F41005CA988 /* SQLite.framework in Frameworks */,
-				0F6F03E61AD46C5900991B5C /* libsqlite3.dylib in Frameworks */,
-				0F6F03DB1AD46AC200991B5C /* AVFoundation.framework in Frameworks */,
 				0F5419BC1ADC51F60070778D /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,26 +117,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F1EA7261ADC0F27005CA988 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0F1EA72E1ADC0F27005CA988 /* SQLite.framework */,
-				0F1EA7301ADC0F27005CA988 /* SQLite Tests.xctest */,
-				0F1EA7321ADC0F27005CA988 /* SQLite.framework */,
-				0F1EA7341ADC0F27005CA988 /* SQLiteCipher Tests.xctest */,
-				0F1EA7361ADC0F27005CA988 /* sqlite3.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		0F5C2A461AB89424003E250A = {
 			isa = PBXGroup;
 			children = (
-				0F74A4231AC9D40900A2B6F2 /* AVFoundation.framework */,
 				0F5419BA1ADC51F60070778D /* OpenEars.framework */,
 				0F5419BB1ADC51F60070778D /* Slt.framework */,
-				0F6F03E11AD46B0200991B5C /* AVKit.framework */,
-				0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */,
 				0FE775D21AD5D7430034AE78 /* Default-568h@2x.png */,
 				0F6F03E51AD46C5900991B5C /* libsqlite3.dylib */,
 				0F5C2A511AB89424003E250A /* SpeedLimitApp */,
@@ -197,8 +142,7 @@
 		0F5C2A511AB89424003E250A /* SpeedLimitApp */ = {
 			isa = PBXGroup;
 			children = (
-				0FAC86F71AD4868000108BE3 /* SpeedLimitDatabase.sqlite3 */,
-				0F578A201AB9F1AE00D049AC /* settingsViewController.swift */,
+				0F578A201AB9F1AE00D049AC /* SettingsViewController.swift */,
 				0F5C2A541AB89424003E250A /* AppDelegate.swift */,
 				0F5C2A591AB89424003E250A /* ViewController.swift */,
 				0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */,
@@ -215,12 +159,13 @@
 		0F5C2A521AB89424003E250A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F9EDBFB1AE1CB1C00016E0A /* SpeedLimitDatabase.sqlite3 */,
+				0FBC8F261ADEF0660025B6F6 /* fmdb */,
+				0F5419C11ADD7B4E0070778D /* SpeedLimit-Bridging-Header.h */,
 				0F9065BB1ADDA5C500D312F7 /* AcousticModelEnglish.bundle */,
 				0F5419C21ADD7B4E0070778D /* SpeechRecognition.h */,
-				0F5419C31ADD7B4E0070778D /* SpeechRecognition.m */,
-				0F5C25F21AD5D90A0087F5B4 /* icon_small_settings1.png */,
+				0F5C25F21AD5D90A0087F5B4 /* settings_icon.png */,
 				0F5C2A531AB89424003E250A /* Info.plist */,
-				0F5419C11ADD7B4E0070778D /* SpeedLimit-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,6 +187,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0FBC8F261ADEF0660025B6F6 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				0FBC8F271ADEF0660025B6F6 /* FMDatabase.h */,
+				0FBC8F281ADEF0660025B6F6 /* FMDatabase.m */,
+				0FBC8F291ADEF0660025B6F6 /* FMDatabaseAdditions.h */,
+				0FBC8F2A1ADEF0660025B6F6 /* FMDatabaseAdditions.m */,
+				0FBC8F2B1ADEF0660025B6F6 /* FMDatabasePool.h */,
+				0FBC8F2C1ADEF0660025B6F6 /* FMDatabasePool.m */,
+				0FBC8F2D1ADEF0660025B6F6 /* FMDatabaseQueue.h */,
+				0FBC8F2E1ADEF0660025B6F6 /* FMDatabaseQueue.m */,
+				0FBC8F2F1ADEF0660025B6F6 /* FMDB.h */,
+				0FBC8F301ADEF0660025B6F6 /* FMResultSet.h */,
+				0FBC8F311ADEF0660025B6F6 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,7 +220,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				0F1EA7381ADC0F39005CA988 /* PBXTargetDependency */,
 			);
 			name = SpeedLimit;
 			productName = SpeedLimit;
@@ -290,10 +252,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
-				ORGANIZATIONNAME = ScubaGirl;
+				ORGANIZATIONNAME = "Group 7";
 				TargetAttributes = {
 					0F5C2A4E1AB89424003E250A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 2HH9PF63UY;
 					};
 					0F5C2A661AB89424003E250A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -312,12 +275,6 @@
 			mainGroup = 0F5C2A461AB89424003E250A;
 			productRefGroup = 0F5C2A501AB89424003E250A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 0F1EA7261ADC0F27005CA988 /* Products */;
-					ProjectRef = 0F1EA7251ADC0F27005CA988 /* SQLite.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				0F5C2A4E1AB89424003E250A /* SpeedLimit */,
@@ -326,44 +283,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		0F1EA72E1ADC0F27005CA988 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 0F1EA72D1ADC0F27005CA988 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0F1EA7301ADC0F27005CA988 /* SQLite Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLite Tests.xctest";
-			remoteRef = 0F1EA72F1ADC0F27005CA988 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0F1EA7321ADC0F27005CA988 /* SQLite.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SQLite.framework;
-			remoteRef = 0F1EA7311ADC0F27005CA988 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0F1EA7341ADC0F27005CA988 /* SQLiteCipher Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SQLiteCipher Tests.xctest";
-			remoteRef = 0F1EA7331ADC0F27005CA988 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		0F1EA7361ADC0F27005CA988 /* sqlite3.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = sqlite3.framework;
-			remoteRef = 0F1EA7351ADC0F27005CA988 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		0F5C2A4D1AB89424003E250A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -371,7 +290,8 @@
 			files = (
 				0F5C2A5D1AB89424003E250A /* Main.storyboard in Resources */,
 				0F5C2A621AB89424003E250A /* LaunchScreen.xib in Resources */,
-				0F5C25F31AD5D90A0087F5B4 /* icon_small_settings1.png in Resources */,
+				0F5C25F31AD5D90A0087F5B4 /* settings_icon.png in Resources */,
+				0FA878541AE1CF2300ACE01F /* SpeedLimitDatabase.sqlite3 in Resources */,
 				0F9065BC1ADDA5C500D312F7 /* AcousticModelEnglish.bundle in Resources */,
 				0FE775D31AD5D7430034AE78 /* Default-568h@2x.png in Resources */,
 				0F5C2A5F1AB89424003E250A /* Images.xcassets in Resources */,
@@ -392,14 +312,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F5C25F51AD5D9560087F5B4 /* AVKit.framework in Sources */,
-				0F5C25F41AD5D94E0087F5B4 /* icon_small_settings1.png in Sources */,
 				0F5C2A5A1AB89424003E250A /* ViewController.swift in Sources */,
 				0F5C2A551AB89424003E250A /* AppDelegate.swift in Sources */,
 				0F7AB75E1ABB8C2E0043B479 /* LocationManager.swift in Sources */,
+				0FBC8F321ADEF0660025B6F6 /* FMDatabase.m in Sources */,
+				0FBC8F361ADEF0660025B6F6 /* FMResultSet.m in Sources */,
 				0F5C2A581AB89424003E250A /* SpeedLimit.xcdatamodeld in Sources */,
-				0F578A211AB9F1AE00D049AC /* settingsViewController.swift in Sources */,
-				0F5419C41ADD7B4E0070778D /* SpeechRecognition.m in Sources */,
+				0FBC8F341ADEF0660025B6F6 /* FMDatabasePool.m in Sources */,
+				0FBC8F331ADEF0660025B6F6 /* FMDatabaseAdditions.m in Sources */,
+				0F578A211AB9F1AE00D049AC /* SettingsViewController.swift in Sources */,
+				0FBC8F351ADEF0660025B6F6 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,11 +335,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0F1EA7381ADC0F39005CA988 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SQLite;
-			targetProxy = 0F1EA7371ADC0F39005CA988 /* PBXContainerItemProxy */;
-		};
 		0F5C2A691AB89424003E250A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0F5C2A4E1AB89424003E250A /* SpeedLimit */;
@@ -529,13 +446,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/SpeedLimit/OpenEarsDistribution/Framework",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = SpeedLimit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
@@ -551,13 +469,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/SpeedLimit/OpenEarsDistribution/Framework",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = SpeedLimit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
