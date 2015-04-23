@@ -36,11 +36,23 @@
 		<data>
 		xD986xo485dfgoE4bjtYBbLcDMU=
 		</data>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		QWSg2uu1NKUoBHchhI7IqRi3YrU=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		oGtriPLoH3ETP6OqQnnii3zrxeA=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		e1CKqxrx9MeeetvlcHrXNXTMuU4=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fzV6Wz95g8+9XOQZvqYxZA4WGRw=
+			/hTyIJrBYzAiy4vY1XOACggQzLo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -49,7 +61,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Jc+Tuv1oMkDt3u3PJ/Le3cCQnPY=
+			3ivGPQg7qTlXmJiGyr9Q96J6ups=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -67,7 +79,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VAkMgB0GsAq0I/j8N4SsTOwMW1E=
+			o/xoKV2qDnmEeCZocBlhtzTijuA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -76,7 +88,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YHQko4eFD76IvOD7UgptKtpilI4=
+			AjZW/R5cFw6Mf3UXd6sVpR+DXIw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -85,7 +97,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tYorvHBWAzwJFbDXIVI9o+y9T5s=
+			IiWcKJAvywV8gIEMxeI5tqlQqic=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -96,47 +108,47 @@
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
-		yWTFZYzKup+i6kgHnUyRpAqKcTw=
+		UHM/VclRC2bp5RRdQyC9UMbv4H0=
 		</data>
 		<key>Frameworks/libswiftCoreAudio.dylib</key>
 		<data>
-		LuYMLiMy0EjPyQgTycIyxJkrpaU=
+		3B1yasmE9n6TohZDb2XgYDrXH+0=
 		</data>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<data>
-		AvzuqvmGIL/VWITpBj6UBov95bs=
+		j9JSb8ixe6+d1Xxdwb8XehCEMw0=
 		</data>
 		<key>Frameworks/libswiftCoreImage.dylib</key>
 		<data>
-		8Ckc+lIIIueZk3BtGMtz7bULRig=
+		E1h3HgL1JrJQw5qI+Vn/sKY1v08=
 		</data>
 		<key>Frameworks/libswiftDarwin.dylib</key>
 		<data>
-		IFgE84afvap9eIn087ztyjYcreU=
+		dNLFWxTTunWz/wavupDIbv0d15o=
 		</data>
 		<key>Frameworks/libswiftDispatch.dylib</key>
 		<data>
-		3apfl0J1zG7oxAD/uVqO7gZ8TeA=
+		4X/+tFw1MYFY8QJwjOyEfX83hYo=
 		</data>
 		<key>Frameworks/libswiftFoundation.dylib</key>
 		<data>
-		ri67BympiWxgPsiUeCWy7Jo1N4A=
+		lM80DvpENKWEM0TtIaMmKNEcOyY=
 		</data>
 		<key>Frameworks/libswiftObjectiveC.dylib</key>
 		<data>
-		jj/4Oc4YRcJVVcqHADXSD7pKXA8=
+		kMsM8KzLjt/ZAVq727MXRZ5Y0Gg=
 		</data>
 		<key>Frameworks/libswiftSecurity.dylib</key>
 		<data>
-		06PsUUsYot+zZT5wmCKQqygXID0=
+		rh03DkYdLX8zxJYdUJc0N+V+YgQ=
 		</data>
 		<key>Frameworks/libswiftUIKit.dylib</key>
 		<data>
-		tpLNKnZE35Ox85MYNZGMA/VsHj0=
+		tZ9xIZeuOP6htbZfl/5BN4Sz/GI=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		mj9IKfe1xjZHqUXMRchSmhLawBE=
+		chdjeJWqCiDkalDMTAIcEBiRqJk=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -156,7 +168,7 @@
 		</data>
 		<key>SpeedLimitDatabase.sqlite3</key>
 		<data>
-		WNfyJWqcr0JPYx0djMe4vqNmgSw=
+		NGluOXqePeeViTicAyVDJb4TFMU=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -165,6 +177,22 @@
 		<key>settings_icon.png</key>
 		<data>
 		drNRlblKJhc+fjLUQ6vowWz0OGg=
+		</data>
+		<key>speedLimitLogo.png</key>
+		<data>
+		Epz1lomZXEfzHRT0e88kCgdyXIw=
+		</data>
+		<key>speedLimitLogo120.png</key>
+		<data>
+		e1CKqxrx9MeeetvlcHrXNXTMuU4=
+		</data>
+		<key>speedLimitLogo58.png</key>
+		<data>
+		QWSg2uu1NKUoBHchhI7IqRi3YrU=
+		</data>
+		<key>speedLimitLogo80.png</key>
+		<data>
+		oGtriPLoH3ETP6OqQnnii3zrxeA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -201,11 +229,23 @@
 		<data>
 		xD986xo485dfgoE4bjtYBbLcDMU=
 		</data>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		QWSg2uu1NKUoBHchhI7IqRi3YrU=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		oGtriPLoH3ETP6OqQnnii3zrxeA=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		e1CKqxrx9MeeetvlcHrXNXTMuU4=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fzV6Wz95g8+9XOQZvqYxZA4WGRw=
+			/hTyIJrBYzAiy4vY1XOACggQzLo=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -214,7 +254,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Jc+Tuv1oMkDt3u3PJ/Le3cCQnPY=
+			3ivGPQg7qTlXmJiGyr9Q96J6ups=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -232,7 +272,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VAkMgB0GsAq0I/j8N4SsTOwMW1E=
+			o/xoKV2qDnmEeCZocBlhtzTijuA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -241,7 +281,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YHQko4eFD76IvOD7UgptKtpilI4=
+			AjZW/R5cFw6Mf3UXd6sVpR+DXIw=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -250,7 +290,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tYorvHBWAzwJFbDXIVI9o+y9T5s=
+			IiWcKJAvywV8gIEMxeI5tqlQqic=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -261,43 +301,43 @@
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
-		yWTFZYzKup+i6kgHnUyRpAqKcTw=
+		UHM/VclRC2bp5RRdQyC9UMbv4H0=
 		</data>
 		<key>Frameworks/libswiftCoreAudio.dylib</key>
 		<data>
-		LuYMLiMy0EjPyQgTycIyxJkrpaU=
+		3B1yasmE9n6TohZDb2XgYDrXH+0=
 		</data>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<data>
-		AvzuqvmGIL/VWITpBj6UBov95bs=
+		j9JSb8ixe6+d1Xxdwb8XehCEMw0=
 		</data>
 		<key>Frameworks/libswiftCoreImage.dylib</key>
 		<data>
-		8Ckc+lIIIueZk3BtGMtz7bULRig=
+		E1h3HgL1JrJQw5qI+Vn/sKY1v08=
 		</data>
 		<key>Frameworks/libswiftDarwin.dylib</key>
 		<data>
-		IFgE84afvap9eIn087ztyjYcreU=
+		dNLFWxTTunWz/wavupDIbv0d15o=
 		</data>
 		<key>Frameworks/libswiftDispatch.dylib</key>
 		<data>
-		3apfl0J1zG7oxAD/uVqO7gZ8TeA=
+		4X/+tFw1MYFY8QJwjOyEfX83hYo=
 		</data>
 		<key>Frameworks/libswiftFoundation.dylib</key>
 		<data>
-		ri67BympiWxgPsiUeCWy7Jo1N4A=
+		lM80DvpENKWEM0TtIaMmKNEcOyY=
 		</data>
 		<key>Frameworks/libswiftObjectiveC.dylib</key>
 		<data>
-		jj/4Oc4YRcJVVcqHADXSD7pKXA8=
+		kMsM8KzLjt/ZAVq727MXRZ5Y0Gg=
 		</data>
 		<key>Frameworks/libswiftSecurity.dylib</key>
 		<data>
-		06PsUUsYot+zZT5wmCKQqygXID0=
+		rh03DkYdLX8zxJYdUJc0N+V+YgQ=
 		</data>
 		<key>Frameworks/libswiftUIKit.dylib</key>
 		<data>
-		tpLNKnZE35Ox85MYNZGMA/VsHj0=
+		tZ9xIZeuOP6htbZfl/5BN4Sz/GI=
 		</data>
 		<key>SpeedLimit.momd/SpeedLimit.mom</key>
 		<data>
@@ -313,7 +353,7 @@
 		</data>
 		<key>SpeedLimitDatabase.sqlite3</key>
 		<data>
-		WNfyJWqcr0JPYx0djMe4vqNmgSw=
+		NGluOXqePeeViTicAyVDJb4TFMU=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -322,6 +362,22 @@
 		<key>settings_icon.png</key>
 		<data>
 		drNRlblKJhc+fjLUQ6vowWz0OGg=
+		</data>
+		<key>speedLimitLogo.png</key>
+		<data>
+		Epz1lomZXEfzHRT0e88kCgdyXIw=
+		</data>
+		<key>speedLimitLogo120.png</key>
+		<data>
+		e1CKqxrx9MeeetvlcHrXNXTMuU4=
+		</data>
+		<key>speedLimitLogo58.png</key>
+		<data>
+		QWSg2uu1NKUoBHchhI7IqRi3YrU=
+		</data>
+		<key>speedLimitLogo80.png</key>
+		<data>
+		oGtriPLoH3ETP6OqQnnii3zrxeA=
 		</data>
 	</dict>
 	<key>rules</key>

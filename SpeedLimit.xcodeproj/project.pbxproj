@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F4E1EDA1AE98EB500F3CBFA /* SpeedLimitDatabase.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1ED91AE98EAA00F3CBFA /* SpeedLimitDatabase.sqlite3 */; };
+		0F4E1EE61AE9A84B00F3CBFA /* speedLimitLogo80.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1EE31AE9A84B00F3CBFA /* speedLimitLogo80.png */; };
+		0F4E1EE71AE9A84B00F3CBFA /* speedLimitLogo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1EE41AE9A84B00F3CBFA /* speedLimitLogo58.png */; };
+		0F4E1EE81AE9A84B00F3CBFA /* speedLimitLogo120.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1EE51AE9A84B00F3CBFA /* speedLimitLogo120.png */; };
 		0F5419BC1ADC51F60070778D /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5419BA1ADC51F60070778D /* OpenEars.framework */; };
 		0F5419BD1ADC51F60070778D /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F5419BB1ADC51F60070778D /* Slt.framework */; };
 		0F578A211AB9F1AE00D049AC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F578A201AB9F1AE00D049AC /* SettingsViewController.swift */; };
@@ -19,7 +23,6 @@
 		0F5C2A621AB89424003E250A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5C2A601AB89424003E250A /* LaunchScreen.xib */; };
 		0F7AB75E1ABB8C2E0043B479 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */; };
 		0F9065BC1ADDA5C500D312F7 /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F9065BB1ADDA5C500D312F7 /* AcousticModelEnglish.bundle */; };
-		0FA878541AE1CF2300ACE01F /* SpeedLimitDatabase.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F9EDBFB1AE1CB1C00016E0A /* SpeedLimitDatabase.sqlite3 */; };
 		0FBC8F321ADEF0660025B6F6 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F281ADEF0660025B6F6 /* FMDatabase.m */; };
 		0FBC8F331ADEF0660025B6F6 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F2A1ADEF0660025B6F6 /* FMDatabaseAdditions.m */; };
 		0FBC8F341ADEF0660025B6F6 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FBC8F2C1ADEF0660025B6F6 /* FMDatabasePool.m */; };
@@ -61,6 +64,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0F4E1ED91AE98EAA00F3CBFA /* SpeedLimitDatabase.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpeedLimitDatabase.sqlite3; sourceTree = "<group>"; };
+		0F4E1EE31AE9A84B00F3CBFA /* speedLimitLogo80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedLimitLogo80.png; sourceTree = "<group>"; };
+		0F4E1EE41AE9A84B00F3CBFA /* speedLimitLogo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedLimitLogo58.png; sourceTree = "<group>"; };
+		0F4E1EE51AE9A84B00F3CBFA /* speedLimitLogo120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedLimitLogo120.png; sourceTree = "<group>"; };
 		0F5419BA1ADC51F60070778D /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
 		0F5419BB1ADC51F60070778D /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		0F5419C11ADD7B4E0070778D /* SpeedLimit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeedLimit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -81,7 +88,6 @@
 		0F6F03E51AD46C5900991B5C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0F7AB75D1ABB8C2E0043B479 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		0F9065BB1ADDA5C500D312F7 /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
-		0F9EDBFB1AE1CB1C00016E0A /* SpeedLimitDatabase.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpeedLimitDatabase.sqlite3; sourceTree = "<group>"; };
 		0FBC8F271ADEF0660025B6F6 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		0FBC8F281ADEF0660025B6F6 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		0FBC8F291ADEF0660025B6F6 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -159,7 +165,10 @@
 		0F5C2A521AB89424003E250A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0F9EDBFB1AE1CB1C00016E0A /* SpeedLimitDatabase.sqlite3 */,
+				0F4E1EE31AE9A84B00F3CBFA /* speedLimitLogo80.png */,
+				0F4E1EE41AE9A84B00F3CBFA /* speedLimitLogo58.png */,
+				0F4E1EE51AE9A84B00F3CBFA /* speedLimitLogo120.png */,
+				0F4E1ED91AE98EAA00F3CBFA /* SpeedLimitDatabase.sqlite3 */,
 				0FBC8F261ADEF0660025B6F6 /* fmdb */,
 				0F5419C11ADD7B4E0070778D /* SpeedLimit-Bridging-Header.h */,
 				0F9065BB1ADDA5C500D312F7 /* AcousticModelEnglish.bundle */,
@@ -288,13 +297,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4E1EE61AE9A84B00F3CBFA /* speedLimitLogo80.png in Resources */,
+				0F4E1EDA1AE98EB500F3CBFA /* SpeedLimitDatabase.sqlite3 in Resources */,
 				0F5C2A5D1AB89424003E250A /* Main.storyboard in Resources */,
 				0F5C2A621AB89424003E250A /* LaunchScreen.xib in Resources */,
+				0F4E1EE81AE9A84B00F3CBFA /* speedLimitLogo120.png in Resources */,
 				0F5C25F31AD5D90A0087F5B4 /* settings_icon.png in Resources */,
-				0FA878541AE1CF2300ACE01F /* SpeedLimitDatabase.sqlite3 in Resources */,
 				0F9065BC1ADDA5C500D312F7 /* AcousticModelEnglish.bundle in Resources */,
 				0FE775D31AD5D7430034AE78 /* Default-568h@2x.png in Resources */,
 				0F5C2A5F1AB89424003E250A /* Images.xcassets in Resources */,
+				0F4E1EE71AE9A84B00F3CBFA /* speedLimitLogo58.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,14 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PL-rl-kxh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PL-rl-kxh" userLabel="outputLabel">
                                 <rect key="frame" x="93" y="284" width="188" height="170"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="80"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Limit:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZc-HB-0zT">
-                                <rect key="frame" x="16" y="204" width="343" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed Limit:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZc-HB-0zT" userLabel="speedLimitLabel">
+                                <rect key="frame" x="16" y="233" width="343" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,15 +49,14 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="You are going more than 5 miles over the speed limit. Please slow down." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-lK-I3p">
-                                <rect key="frame" x="101" y="79" width="172" height="102"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="You are going more than 5 miles over the speed limit. Please slow down." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hLY-lK-I3p" userLabel="overTextView">
+                                <rect key="frame" x="16" y="98" width="343" height="83"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="172" id="L3e-MT-qlK"/>
-                                    <constraint firstAttribute="height" constant="102" id="PIS-K3-8Fq"/>
+                                    <constraint firstAttribute="height" constant="83" id="PQY-Xo-pBf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -72,19 +71,22 @@
                                     <action selector="speedLimitButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9gX-ad-tvV"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3b-kq-G1m" userLabel="testTextView">
+                                <rect key="frame" x="58" y="84" width="261" height="155"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CZc-HB-0zT" firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" id="2ru-sg-6Hw"/>
-                            <constraint firstItem="hLY-lK-I3p" firstAttribute="top" secondItem="pUf-B4-J7I" secondAttribute="bottom" constant="15" id="2sW-cs-4l3"/>
                             <constraint firstItem="pUf-B4-J7I" firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" id="4A3-Pe-01f"/>
-                            <constraint firstItem="8PL-rl-kxh" firstAttribute="top" secondItem="CZc-HB-0zT" secondAttribute="bottom" constant="41" id="4HK-ey-k9Q"/>
+                            <constraint firstItem="8PL-rl-kxh" firstAttribute="top" secondItem="CZc-HB-0zT" secondAttribute="bottom" constant="8" id="4HK-ey-k9Q"/>
                             <constraint firstItem="hLY-lK-I3p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="85" id="4tP-d0-59J"/>
                             <constraint firstItem="8PL-rl-kxh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="77" id="Ags-K2-UtQ"/>
                             <constraint firstAttribute="centerY" secondItem="8PL-rl-kxh" secondAttribute="centerY" constant="-35.5" id="DdX-dY-T7H"/>
-                            <constraint firstItem="CZc-HB-0zT" firstAttribute="top" secondItem="hLY-lK-I3p" secondAttribute="bottom" constant="23" id="Gz6-2X-ImE"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="centerX" secondItem="CZc-HB-0zT" secondAttribute="centerX" id="ELn-OS-Epd"/>
                             <constraint firstAttribute="centerY" secondItem="CZc-HB-0zT" secondAttribute="centerY" constant="110" id="Mh1-Ly-pGn"/>
-                            <constraint firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" constant="0.5" id="MtR-Jm-yy3"/>
                             <constraint firstAttribute="trailing" secondItem="pUf-B4-J7I" secondAttribute="trailing" id="O19-hb-1Z1"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="8l0-9d-pdF" secondAttribute="bottom" constant="8" symbolic="YES" id="PYz-Fo-URB"/>
                             <constraint firstItem="8l0-9d-pdF" firstAttribute="leading" secondItem="pUf-B4-J7I" secondAttribute="leading" id="Qcq-Y2-i2z"/>
@@ -95,9 +97,13 @@
                             <constraint firstAttribute="centerX" secondItem="hLY-lK-I3p" secondAttribute="centerX" constant="0.5" id="bfh-Nx-cFr"/>
                             <constraint firstItem="hLY-lK-I3p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="85" id="gsH-5O-Rin"/>
                             <constraint firstItem="8l0-9d-pdF" firstAttribute="trailing" secondItem="pUf-B4-J7I" secondAttribute="trailing" id="jod-eO-M0F"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="top" secondItem="pUf-B4-J7I" secondAttribute="bottom" constant="34" id="jpz-dh-GDq"/>
                             <constraint firstAttribute="centerX" secondItem="8PL-rl-kxh" secondAttribute="centerX" constant="0.5" id="mLD-nM-Tug"/>
                             <constraint firstItem="pUf-B4-J7I" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="oI4-ea-Clo"/>
+                            <constraint firstItem="CZc-HB-0zT" firstAttribute="top" secondItem="hLY-lK-I3p" secondAttribute="bottom" constant="52" id="pZx-nf-Te2"/>
                             <constraint firstItem="8l0-9d-pdF" firstAttribute="top" secondItem="pUf-B4-J7I" secondAttribute="bottom" id="rKf-p5-RRu"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="centerX" secondItem="pUf-B4-J7I" secondAttribute="centerX" id="uRD-4k-kjf"/>
+                            <constraint firstItem="hLY-lK-I3p" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="w7t-DW-iAq"/>
                             <constraint firstItem="hLY-lK-I3p" firstAttribute="centerX" secondItem="CZc-HB-0zT" secondAttribute="centerX" id="zkp-ab-DQ0"/>
                         </constraints>
                         <variation key="default">
@@ -107,6 +113,7 @@
                                 <exclude reference="bfh-Nx-cFr"/>
                                 <exclude reference="gsH-5O-Rin"/>
                                 <exclude reference="zkp-ab-DQ0"/>
+                                <exclude reference="Mh1-Ly-pGn"/>
                             </mask>
                         </variation>
                     </view>
@@ -117,6 +124,7 @@
                         <outlet property="outputLabel" destination="8PL-rl-kxh" id="bJi-Qs-Pmf"/>
                         <outlet property="overTextView" destination="hLY-lK-I3p" id="Z3w-YL-day"/>
                         <outlet property="speedLimitLabel" destination="CZc-HB-0zT" id="Pak-JS-yXj"/>
+                        <outlet property="testTextView" destination="j3b-kq-G1m" id="vTm-Pv-wGd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

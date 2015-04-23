@@ -132,6 +132,7 @@ SWIFT_CLASS("_TtC10SpeedLimit15LocationManager")
 @property (nonatomic) CLLocationManager * __null_unspecified manager;
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)startUpdatingLocation;
+- (void)locationManager:(CLLocationManager * __null_unspecified)manager didUpdateLocations:(NSArray * __null_unspecified)locations;
 - (void)checkLocationServices;
 - (NSNumber * __nonnull)getSpeed;
 - (CLLocationDirection)getDirection;
@@ -180,6 +181,9 @@ SWIFT_CLASS("_TtC10SpeedLimit14ViewController")
 @property (nonatomic) NSInteger redSpeed;
 @property (nonatomic) CLLocation * __null_unspecified currentLocation;
 @property (nonatomic) BOOL viewFirstLoad;
+@property (nonatomic) double envelope;
+@property (nonatomic) double lastLat;
+@property (nonatomic) double curLat;
 @property (nonatomic) NSTimer * __nonnull speedUpdateTimer;
 @property (nonatomic) NSTimeInterval startTime;
 @property (nonatomic) NSTimeInterval currentTime;
@@ -198,12 +202,12 @@ SWIFT_CLASS("_TtC10SpeedLimit14ViewController")
 @property (nonatomic, weak) IBOutlet UINavigationBar * __null_unspecified navBar;
 - (void)viewDidLoad;
 - (void)updateSpeed;
-- (NSTimeInterval)calcElapsedTime;
-- (void)speakWarning;
 - (void)fetchSpeedLimitData;
 - (void)updateCurrentSpeed;
 - (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __null_unspecified)sender;
 - (IBAction)speedLimitButton:(UIButton * __nonnull)sender;
+- (NSTimeInterval)calcElapsedTime;
+- (void)speakWarning;
 - (void)pocketsphinxDidReceiveHypothesis:(NSString * __null_unspecified)hypothesis recognitionScore:(NSString * __null_unspecified)recognitionScore utteranceID:(NSString * __null_unspecified)utteranceID;
 - (void)pocketsphinxDidStartListening;
 - (void)pocketsphinxDidDetectSpeech;

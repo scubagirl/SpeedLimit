@@ -16,11 +16,15 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    var redSpeed : Int = 5
    var currentLocation : CLLocation! = nil
    var viewFirstLoad : Bool = true
+   var envelope : Double = 0.001
+   var lastLat : Double = 0
+   var curLat : Double = 0
    
    /* Timers/Intervals */
    var speedUpdateTimer = NSTimer()
    var startTime : NSTimeInterval = 0
    var currentTime = NSDate.timeIntervalSinceReferenceDate()
+   var locationUpdater = NSDate.timeIntervalSinceReferenceDate()
    
    /* Variables for Speech Recognition */
    var speakAlert: Bool = true                        //toggle alerts on
@@ -33,6 +37,10 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    var lmPath: String?
    var dicPath: String?
    
+   /*DELETE ME AND MY STORYBOARD VIEW*/
+   @IBOutlet weak var testTextView: UITextView!
+   
+   
    /*Label Variables*/
    @IBOutlet var outputLabel: UILabel! = nil          //current speed limit
    @IBOutlet var speedLimitLabel: UILabel! = nil      //"Speed Limit:"
@@ -43,6 +51,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    override func viewDidLoad() {
       
       overTextView.hidden = true
+      testTextView.hidden = true
       overTextView.text = "You are going more than \(redSpeed) miles over the speed limit. Please slow down."
       super.viewDidLoad()
       
@@ -58,8 +67,11 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
       speedLimitLabel.text = "Speed Limit:"
       
       locationManager.checkLocationServices()
+      
+      curLat = locationManager.getCoord().latitude
+      lastLat = locationManager.getCoord().latitude
 
-      speedUpdateTimer = NSTimer.scheduledTimerWithTimeInterval(1, target:self, selector: Selector("updateSpeed"), userInfo: nil, repeats: true)
+      speedUpdateTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target:self, selector: Selector("updateSpeed"), userInfo: nil, repeats: true)
       
       if(viewFirstLoad){
          /* Speech Recognition setup */
@@ -88,10 +100,12 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
       
       
       if(speedLimit == 0){
+         overTextView.hidden = true
          outputLabel.font = UIFont.boldSystemFontOfSize(25)
          outputLabel.text = "Unknown"
       }
-      else if(currentSpeed.integerValue < speedLimit + yellowSpeed){
+      else if(currentSpeed.integerValue <= speedLimit + yellowSpeed){
+         outputLabel.font = UIFont.boldSystemFontOfSize(80.0)
          outputLabel.text = "\(speedLimit)"
          overTextView.hidden = true
          self.view.backgroundColor = UIColor.whiteColor()
@@ -115,6 +129,123 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    }
    
    
+
+   
+   /* Fetches Speed Limit Data */
+   func fetchSpeedLimitData(){
+      
+      
+      var lat = locationManager.getCoord().latitude
+      var long = locationManager.getCoord().longitude
+      var numDirec = locationManager.getDirection()
+  
+      /* Mock: Southbound on I35 */
+//         numDirec = 180
+//         lat = 30.1846
+//         long = -97.7746
+
+      /* Mock: Northbound on I35 */
+//      numDirec = 0
+//      lat = 30.18455
+//      long = -97.7744
+      
+      
+      if(!(long == -180 && lat == -180) && numDirec >= 0){
+         var found = false
+         let dbPath = NSBundle.mainBundle().pathForResource("SpeedLimitDatabase", ofType:"sqlite3")
+         let database = FMDatabase(path: dbPath)
+         var direc: String = ""
+         
+         /* Determine direction travelled. */
+         if((numDirec > 270 || numDirec < 90) ){
+            direc = "N"
+         }
+         else{
+            direc = "S"
+         }
+         
+         testTextView.text = "lat:\(lat), long:\(long) numDir:\(numDirec) speed:\(currentSpeed), direc:\(direc), speedLimit:\(speedLimit)"
+         
+         /* Open and query the database file. */
+         if(!database.open()){
+            println("Unable to open database")
+            return
+         }
+         
+         if let rs = database.executeQuery("select * from SpeedLimits", withArgumentsInArray: nil){
+            while(rs.next() && found == false){
+               let latString = rs.stringForColumn("latitude")
+               let longString = rs.stringForColumn("longitude")
+               let direction = rs.stringForColumn("direction")
+               let speedlimitString = rs.stringForColumn("speedlimit")
+               
+               let latitude = (latString as NSString).doubleValue
+               let longitude = (longString as NSString).doubleValue
+               let speedlimit = speedlimitString.toInt()
+               
+               if((latitude + envelope)>lat && (latitude - envelope)<lat && (longitude + envelope)>long && (longitude - envelope)<long && direc == direction){
+                  speedLimit = speedlimit!
+               }
+            }
+         } else {
+            println("executeQuery failed: \(database.lastErrorMessage())")
+            
+            testTextView.text = "lat:\(lat), long:\(long) numDir:\(numDirec) speed:\(currentSpeed), speedLimit:\(speedLimit)"
+         }
+         
+         database.close()
+
+      }
+   }
+   
+   /* Updates the Current Speed */
+   func updateCurrentSpeed(){
+      if (locationManager.getSpeed() != -1){
+         currentSpeed = locationManager.getSpeed()
+      }
+      /* ALL MOCKED VALUES FOR UNCHANGED SETTINGS */
+      /* Mock Not Speeding */
+//      currentSpeed = 60
+      
+      /* Mock Speeding Southbound: Yellow */
+//      currentSpeed = 74
+      
+      /* Mock Speeding Southbound: Red */
+//      currentSpeed = 78
+      
+      /* Mock Speeding Northbound: Yellow */
+//      currentSpeed = 63
+
+      /* Mock Speeding Northbound: Red */
+//      currentSpeed = 75
+   }
+   
+   /* Settings Button Segue - Passes variables to settings view */
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+      if segue.identifier == "settingsSegue"{
+         if let settingsView = segue.destinationViewController as? SettingsViewController{
+            settingsView.setToggle = speakAlert
+            settingsView.redText = String(redSpeed)
+            settingsView.yellowText = String(yellowSpeed)
+            settingsView.settingsStartTime = startTime
+         }
+         
+      }
+   }
+
+   
+   /* Main View Primary Button - Speaks Speed Limit */
+   @IBAction func speedLimitButton(sender: UIButton) {
+      
+      if (speedLimit == 0){
+         fliteContoroller.say("The current speed limit is unknown", withVoice: slt)
+      }
+      else{
+         fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
+      }
+      
+   }
+   
    /* Calculates time elapsed from last SpeakWarning() Alert */
    func calcElapsedTime() -> NSTimeInterval{
       var currentTime = NSDate.timeIntervalSinceReferenceDate()
@@ -130,83 +261,6 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
       
    }
    
-   /* Fetches Speed Limit Data */
-   func fetchSpeedLimitData(){
-      
-      var lat = locationManager.getCoord().latitude
-      var long = locationManager.getCoord().longitude
-      var found = false
-      let dbPath = NSBundle.mainBundle().pathForResource("SpeedLimitDatabase", ofType:"sqlite3")
-      let database = FMDatabase(path: dbPath)
-      var direc: String = ""
-      let numDirec = locationManager.getDirection()
-      
-      /* Determine direction travelled. */
-      if(numDirec > 270 && numDirec < 90){
-         direc = "N"
-      }
-      else{
-         direc = "S"
-      }
-      
-      /* Open and query the database file. */
-      if(!database.open()){
-         println("Unable to open database")
-         return
-      }
-      
-      if let rs = database.executeQuery("select * from SpeedLimits", withArgumentsInArray: nil){
-         while(rs.next() && found == false){
-            let latMax = rs.stringForColumn("latitudeMax") //hkEdits---------
-            let longMax = rs.stringForColumn("longitudeMax")
-            let latMin = rs.stringForColumn("latitudeMin")
-            let longMin = rs.stringForColumn("longitudeMin")
-            let direction = rs.stringForColumn("direction")
-            let speedlimitString = rs.stringForColumn("speedlimit")
-            
-            let latitudeMax = (latMax as NSString).doubleValue
-            let longitudeMax = (longMax as NSString).doubleValue
-            let latitudeMin = (latMin as NSString).doubleValue
-            let longitudeMin = (longMin as NSString).doubleValue
-            let speedlimit = speedlimitString.toInt()
-            
-            if(lat > latitudeMin && long > longitudeMin && lat > latitudeMin && long > longitudeMin && direc == direction){//hkedits-------
-               speedLimit = speedlimit!
-               found == true
-            }
-         }
-      } else {
-         println("executeQuery failed: \(database.lastErrorMessage())")
-      }
-      
-      database.close()
-   }
-   
-   /* Updates the Current Speed */
-   func updateCurrentSpeed(){
-      currentSpeed = locationManager.getSpeed()
-   }
-   
-   /* Settings Button Segue - Passes variables to settings view */
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-      if segue.identifier == "settingsSegue"{
-         if let settingsView = segue.destinationViewController as? SettingsViewController{
-            settingsView.setToggle = speakAlert
-            settingsView.redText = String(redSpeed)
-            settingsView.yellowText = String(yellowSpeed)
-            settingsView.settingsStartTime = startTime
-         }
-         
-      }
-   }
-   
-   /* Main View Primary Button - Speaks Speed Limit */
-   @IBAction func speedLimitButton(sender: UIButton) {
-      
-      fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
-      
-   }
-   
    
    /* Speech Recognition -
       CODE FROM :https://gist.github.com/allenjwong/b962972d64904d2217bc
@@ -215,7 +269,12 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
       
       /* Start: Our Code */
       if (hypothesis == "SPEED LIMIT"){
-         fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
+         if (speedLimit == 0){
+            fliteContoroller.say("The current speed limit is unknown", withVoice: slt)
+         }
+         else{
+            fliteContoroller.say("The current speed limit is \(speedLimit)", withVoice: slt)
+         }
       }
       /* End: Our Code */
       
