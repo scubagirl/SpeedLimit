@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>94B2BE6B-03D6-4536-A219-0BEE3FFEC8CD</string>
 	<key>IDESourceControlProjectName</key>
-	<string>SpeedLimit</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3DE6BCB14563BE6955D0DCC515BCE4DC505DC324</key>
 		<string>https://github.com/scubagirl/SpeedLimit.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SpeedLimit.xcodeproj</string>
+	<string>SpeedLimit.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3DE6BCB14563BE6955D0DCC515BCE4DC505DC324</key>

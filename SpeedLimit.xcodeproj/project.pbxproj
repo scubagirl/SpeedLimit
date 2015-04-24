@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F4E1EDA1AE98EB500F3CBFA /* SpeedLimitDatabase.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1ED91AE98EAA00F3CBFA /* SpeedLimitDatabase.sqlite3 */; };
+		0F348BCE1AEAE75B0025285D /* SpeedLimitDatabase.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 0F348BCD1AEAE7430025285D /* SpeedLimitDatabase.sqlite3 */; };
 		0F4E1EE61AE9A84B00F3CBFA /* speedLimitLogo80.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1EE31AE9A84B00F3CBFA /* speedLimitLogo80.png */; };
 		0F4E1EE71AE9A84B00F3CBFA /* speedLimitLogo58.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1EE41AE9A84B00F3CBFA /* speedLimitLogo58.png */; };
 		0F4E1EE81AE9A84B00F3CBFA /* speedLimitLogo120.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F4E1EE51AE9A84B00F3CBFA /* speedLimitLogo120.png */; };
@@ -64,7 +64,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0F4E1ED91AE98EAA00F3CBFA /* SpeedLimitDatabase.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpeedLimitDatabase.sqlite3; sourceTree = "<group>"; };
+		0F348BCD1AEAE7430025285D /* SpeedLimitDatabase.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; name = SpeedLimitDatabase.sqlite3; path = Database/SpeedLimitDatabase.sqlite3; sourceTree = SOURCE_ROOT; };
 		0F4E1EE31AE9A84B00F3CBFA /* speedLimitLogo80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedLimitLogo80.png; sourceTree = "<group>"; };
 		0F4E1EE41AE9A84B00F3CBFA /* speedLimitLogo58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedLimitLogo58.png; sourceTree = "<group>"; };
 		0F4E1EE51AE9A84B00F3CBFA /* speedLimitLogo120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speedLimitLogo120.png; sourceTree = "<group>"; };
@@ -165,10 +165,10 @@
 		0F5C2A521AB89424003E250A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F348BCD1AEAE7430025285D /* SpeedLimitDatabase.sqlite3 */,
 				0F4E1EE31AE9A84B00F3CBFA /* speedLimitLogo80.png */,
 				0F4E1EE41AE9A84B00F3CBFA /* speedLimitLogo58.png */,
 				0F4E1EE51AE9A84B00F3CBFA /* speedLimitLogo120.png */,
-				0F4E1ED91AE98EAA00F3CBFA /* SpeedLimitDatabase.sqlite3 */,
 				0FBC8F261ADEF0660025B6F6 /* fmdb */,
 				0F5419C11ADD7B4E0070778D /* SpeedLimit-Bridging-Header.h */,
 				0F9065BB1ADDA5C500D312F7 /* AcousticModelEnglish.bundle */,
@@ -297,8 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F348BCE1AEAE75B0025285D /* SpeedLimitDatabase.sqlite3 in Resources */,
 				0F4E1EE61AE9A84B00F3CBFA /* speedLimitLogo80.png in Resources */,
-				0F4E1EDA1AE98EB500F3CBFA /* SpeedLimitDatabase.sqlite3 in Resources */,
 				0F5C2A5D1AB89424003E250A /* Main.storyboard in Resources */,
 				0F5C2A621AB89424003E250A /* LaunchScreen.xib in Resources */,
 				0F4E1EE81AE9A84B00F3CBFA /* speedLimitLogo120.png in Resources */,

@@ -98,13 +98,13 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
          outputLabel.font = UIFont.boldSystemFontOfSize(25)
          outputLabel.text = "Unknown"
       }
-      else if(currentSpeed.integerValue < speedLimit + yellowSpeed){
+      else if(currentSpeed.integerValue <= speedLimit + yellowSpeed){
          outputLabel.font = UIFont.boldSystemFontOfSize(80.0)
          outputLabel.text = "\(speedLimit)"
          overTextView.hidden = true
          self.view.backgroundColor = UIColor.whiteColor()
       }
-      else if(currentSpeed.integerValue < speedLimit + redSpeed && currentSpeed.integerValue >= speedLimit + yellowSpeed){
+      else if(currentSpeed.integerValue < speedLimit + redSpeed && currentSpeed.integerValue > speedLimit + yellowSpeed){
          outputLabel.font = UIFont.boldSystemFontOfSize(80.0)
          outputLabel.text = "\(speedLimit)"
          overTextView.hidden = true
@@ -134,14 +134,16 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
       var numDirec = locationManager.getDirection()
   
       /* Mock: Southbound on I35 */
+      
 //         numDirec = 180
-//         lat = 30.1846
-//         long = -97.7746
+//         lat = 30.216751
+//         long = -97.774651
 
       /* Mock: Northbound on I35 */
-//      numDirec = 0
-//      lat = 30.18455
-//      long = -97.7744
+      
+      numDirec = 0
+      lat = 30.216823
+      long = -97.751386
       
       
       if(!(long == -180 && lat == -180) && numDirec >= 0){
@@ -200,18 +202,23 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
       }
       /* ALL MOCKED VALUES FOR UNCHANGED SETTINGS */
       /* Mock Not Speeding */
-//      currentSpeed = 60
+      
+      currentSpeed = 60
       
       /* Mock Speeding Southbound: Yellow */
+      
 //      currentSpeed = 74
       
       /* Mock Speeding Southbound: Red */
+      
 //      currentSpeed = 78
       
       /* Mock Speeding Northbound: Yellow */
+      
 //      currentSpeed = 63
 
       /* Mock Speeding Northbound: Red */
+      
 //      currentSpeed = 75
    }
    
