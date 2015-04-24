@@ -39,12 +39,14 @@ class SettingsViewController: UIViewController {
             let tempYellow: Int? = yellowSettingsSpeed.text.toInt()
             let tempRed: Int? = redSettingsSpeed.text.toInt()
             
-            if(tempYellow! < tempRed!){
-               mainView.yellowSpeed = tempYellow!
-               mainView.redSpeed = tempRed!
-               mainView.speakAlert = voiceToggle.on
-               mainView.startTime = settingsStartTime
-               mainView.viewFirstLoad = false
+            if(tempYellow != nil && tempRed != nil){
+               if(tempYellow! < tempRed!){
+                  mainView.yellowSpeed = tempYellow!
+                  mainView.redSpeed = tempRed!
+                  mainView.speakAlert = voiceToggle.on
+                  mainView.startTime = settingsStartTime
+                  mainView.viewFirstLoad = false
+               }
             }
             
 
