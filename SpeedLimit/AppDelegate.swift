@@ -9,13 +9,14 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+   /* Added variables and initializers for different views */
    var window: UIWindow?
-   var locationManager: LocationManager
+//   var locationManager: LocationManager
    var viewController: ViewController
    var settingsView: SettingsViewController
 
    override init() {
-      locationManager = LocationManager()
+//      locationManager = LocationManager()
       viewController = ViewController()
       settingsView = SettingsViewController()
       super.init()

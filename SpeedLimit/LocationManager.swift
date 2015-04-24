@@ -46,12 +46,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
       }
    }
    
+   /* Forces location updates when moved distance filter amount (10 meters) */
    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]!) {
       println("locations = \(locations)")
 //      NSThread.sleepForTimeInterval(0.001)
    }
    
-   /* Get speed - return -1 if location not available */
+   /* Get speed - return -1 if location not available, converts from meters/second*/
    func getSpeed() ->NSNumber {
       if (manager.location != nil){
          return manager.location.speed * 2.23694

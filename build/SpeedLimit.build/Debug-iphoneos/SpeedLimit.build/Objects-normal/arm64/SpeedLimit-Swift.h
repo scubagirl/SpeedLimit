@@ -151,17 +151,16 @@ SWIFT_CLASS("_TtC10SpeedLimit22SettingsViewController")
 @property (nonatomic, copy) NSString * __nonnull redText;
 @property (nonatomic, copy) NSString * __nonnull yellowText;
 @property (nonatomic) NSTimeInterval settingsStartTime;
-- (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
-- (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __null_unspecified)sender;
 @property (nonatomic, weak) IBOutlet UISwitch * __null_unspecified voiceToggle;
 @property (nonatomic, weak) IBOutlet UITextField * __null_unspecified redSettingsSpeed;
 @property (nonatomic, weak) IBOutlet UITextField * __null_unspecified yellowSettingsSpeed;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __null_unspecified)sender;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class CLLocation;
 @class NSTimer;
 @class OEEventsObserver;
 @class OEFliteController;
@@ -179,15 +178,11 @@ SWIFT_CLASS("_TtC10SpeedLimit14ViewController")
 @property (nonatomic) NSInteger speedLimit;
 @property (nonatomic) NSInteger yellowSpeed;
 @property (nonatomic) NSInteger redSpeed;
-@property (nonatomic) CLLocation * __null_unspecified currentLocation;
 @property (nonatomic) BOOL viewFirstLoad;
 @property (nonatomic) double envelope;
-@property (nonatomic) double lastLat;
-@property (nonatomic) double curLat;
 @property (nonatomic) NSTimer * __nonnull speedUpdateTimer;
 @property (nonatomic) NSTimeInterval startTime;
 @property (nonatomic) NSTimeInterval currentTime;
-@property (nonatomic) NSTimeInterval locationUpdater;
 @property (nonatomic) BOOL speakAlert;
 @property (nonatomic, readonly) OEEventsObserver * __nonnull openEarsEventsObserver;
 @property (nonatomic) OEFliteController * __nonnull fliteContoroller;

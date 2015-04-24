@@ -94,7 +94,6 @@ typedef struct _NSZone NSZone;
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 @class UIWindow;
-@class LocationManager;
 @class ViewController;
 @class SettingsViewController;
 @class UIApplication;
@@ -107,7 +106,6 @@ typedef struct _NSZone NSZone;
 SWIFT_CLASS("_TtC10SpeedLimit11AppDelegate")
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (nonatomic) UIWindow * __nullable window;
-@property (nonatomic) LocationManager * __nonnull locationManager;
 @property (nonatomic) ViewController * __nonnull viewController;
 @property (nonatomic) SettingsViewController * __nonnull settingsView;
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -132,8 +130,8 @@ SWIFT_CLASS("_TtC10SpeedLimit15LocationManager")
 @property (nonatomic) CLLocationManager * __null_unspecified manager;
 - (SWIFT_NULLABILITY(nonnull) instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)startUpdatingLocation;
-- (void)locationManager:(CLLocationManager * __null_unspecified)manager didUpdateLocations:(NSArray * __null_unspecified)locations;
 - (void)checkLocationServices;
+- (void)locationManager:(CLLocationManager * __nonnull)manager didUpdateLocations:(NSArray * __null_unspecified)locations;
 - (NSNumber * __nonnull)getSpeed;
 - (CLLocationDirection)getDirection;
 - (CLLocationCoordinate2D)getCoord;
@@ -151,17 +149,16 @@ SWIFT_CLASS("_TtC10SpeedLimit22SettingsViewController")
 @property (nonatomic, copy) NSString * __nonnull redText;
 @property (nonatomic, copy) NSString * __nonnull yellowText;
 @property (nonatomic) NSTimeInterval settingsStartTime;
-- (void)viewDidLoad;
-- (void)didReceiveMemoryWarning;
-- (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __null_unspecified)sender;
 @property (nonatomic, weak) IBOutlet UISwitch * __null_unspecified voiceToggle;
 @property (nonatomic, weak) IBOutlet UITextField * __null_unspecified redSettingsSpeed;
 @property (nonatomic, weak) IBOutlet UITextField * __null_unspecified yellowSettingsSpeed;
+- (void)viewDidLoad;
+- (void)didReceiveMemoryWarning;
+- (void)prepareForSegue:(UIStoryboardSegue * __nonnull)segue sender:(id __null_unspecified)sender;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class CLLocation;
 @class NSTimer;
 @class OEEventsObserver;
 @class OEFliteController;
@@ -179,11 +176,8 @@ SWIFT_CLASS("_TtC10SpeedLimit14ViewController")
 @property (nonatomic) NSInteger speedLimit;
 @property (nonatomic) NSInteger yellowSpeed;
 @property (nonatomic) NSInteger redSpeed;
-@property (nonatomic) CLLocation * __null_unspecified currentLocation;
 @property (nonatomic) BOOL viewFirstLoad;
 @property (nonatomic) double envelope;
-@property (nonatomic) double lastLat;
-@property (nonatomic) double curLat;
 @property (nonatomic) NSTimer * __nonnull speedUpdateTimer;
 @property (nonatomic) NSTimeInterval startTime;
 @property (nonatomic) NSTimeInterval currentTime;
@@ -196,6 +190,7 @@ SWIFT_CLASS("_TtC10SpeedLimit14ViewController")
 @property (nonatomic, copy) NSString * __nonnull name;
 @property (nonatomic, copy) NSString * __nullable lmPath;
 @property (nonatomic, copy) NSString * __nullable dicPath;
+@property (nonatomic, weak) IBOutlet UITextView * __null_unspecified testTextView;
 @property (nonatomic) IBOutlet UILabel * __null_unspecified outputLabel;
 @property (nonatomic) IBOutlet UILabel * __null_unspecified speedLimitLabel;
 @property (nonatomic, weak) IBOutlet UITextView * __null_unspecified overTextView;

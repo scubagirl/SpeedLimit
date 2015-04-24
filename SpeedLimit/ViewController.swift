@@ -14,17 +14,13 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    var speedLimit : Int = 0
    var yellowSpeed : Int = 0
    var redSpeed : Int = 5
-   var currentLocation : CLLocation! = nil
-   var viewFirstLoad : Bool = true
-   var envelope : Double = 0.001
-   var lastLat : Double = 0
-   var curLat : Double = 0
+   var viewFirstLoad : Bool = true           //makes sure upon seguing from settings, no new listener
+   var envelope : Double = 0.0005             //determines size of lat/long "bubble" for database check
    
    /* Timers/Intervals */
    var speedUpdateTimer = NSTimer()
    var startTime : NSTimeInterval = 0
    var currentTime = NSDate.timeIntervalSinceReferenceDate()
-   var locationUpdater = NSDate.timeIntervalSinceReferenceDate()
    
    /* Variables for Speech Recognition */
    var speakAlert: Bool = true                        //toggle alerts on
@@ -37,7 +33,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
    var lmPath: String?
    var dicPath: String?
    
-   /*DELETE ME AND MY STORYBOARD VIEW*/
+   /* FOR TESTING PURPOSES */
    @IBOutlet weak var testTextView: UITextView!
    
    
@@ -68,8 +64,6 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
       
       locationManager.checkLocationServices()
       
-      curLat = locationManager.getCoord().latitude
-      lastLat = locationManager.getCoord().latitude
 
       speedUpdateTimer = NSTimer.scheduledTimerWithTimeInterval(0.5, target:self, selector: Selector("updateSpeed"), userInfo: nil, repeats: true)
       
@@ -104,7 +98,7 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
          outputLabel.font = UIFont.boldSystemFontOfSize(25)
          outputLabel.text = "Unknown"
       }
-      else if(currentSpeed.integerValue <= speedLimit + yellowSpeed){
+      else if(currentSpeed.integerValue < speedLimit + yellowSpeed){
          outputLabel.font = UIFont.boldSystemFontOfSize(80.0)
          outputLabel.text = "\(speedLimit)"
          overTextView.hidden = true
@@ -164,14 +158,16 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
             direc = "S"
          }
          
+         /*FOR TESTING PURPOSES*/
          testTextView.text = "lat:\(lat), long:\(long) numDir:\(numDirec) speed:\(currentSpeed), direc:\(direc), speedLimit:\(speedLimit)"
          
-         /* Open and query the database file. */
+         /* Test if DB can open. */
          if(!database.open()){
             println("Unable to open database")
             return
          }
          
+         /* Open and query the database file. */
          if let rs = database.executeQuery("select * from SpeedLimits", withArgumentsInArray: nil){
             while(rs.next() && found == false){
                let latString = rs.stringForColumn("latitude")
@@ -192,7 +188,6 @@ class ViewController: UIViewController, OEEventsObserverDelegate {
             
             testTextView.text = "lat:\(lat), long:\(long) numDir:\(numDirec) speed:\(currentSpeed), speedLimit:\(speedLimit)"
          }
-         
          database.close()
 
       }
